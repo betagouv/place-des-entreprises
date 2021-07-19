@@ -23,11 +23,12 @@
               - if local_assigns[:antenne]
                 - experts &= antenne.experts
               - count = experts.size
-              %th.right.aligned{ title: t('.experts_on_subject', count: count) }
-                - if count.zero?
-                  %i.red.ri-error-warning-fill
+              - anomalie = (count == 0 || (local_assigns[:antenne] && count > 1))
+              %th.right.aligned{ title: t('.experts_on_subject', count: count), class: ('red' if anomalie) }
                 = count
-                -# = institution_subject.subject.label
+                - if anomalie
+                  %i.red.ri-error-warning-fill
+
     %tbody
       -# `advisors` contains multiple rows for the same users, for each of their team. (See User.relevant_for_skills)
         We’ll group by Antenne and by Expert team, and span the first two columns as needed.
@@ -37,19 +38,20 @@
           - advisors = key_and_value.last
           - advisors.each_with_index do |user, index_in_team|
             - highlighted_ids = flash[:table_highlighted_ids]
-            - team_first_row = index_in_antenne == 0 && index_in_team == 0
-            - team_separation_class = team_first_row ? 'tr--distinct' : ''
+            - team_first_row = index_in_team == 0
+            - antenne_first_row = index_in_antenne == 0 && team_first_row
+            - antenne_separation_class = antenne_first_row ? 'tr--distinct' : ''
             - highlighted_class = highlighted_ids&.include?(user.id) ? 'blue' : ''
-            %tr{ class: [team_separation_class, highlighted_class].compact.join(" ") }
-              - if team_first_row
+            %tr{ class: [antenne_separation_class, highlighted_class].compact.join(" ") }
+              - if antenne_first_row
                 %td.td-header{ rowspan: teams.values.sum(&:size) }
                   = link_to antenne, institution_antenne_advisors_path(antenne_id: antenne)
               - if index_in_team == 0
                 %td.td-header{ rowspan: advisors.size }
                   - if user.relevant_expert.team?
-                    = render 'shared/tooltip', person: user.relevant_expert, key: 'expert'
+                    = link_to user.relevant_expert.full_name, edit_admin_expert_path(user.relevant_expert), title: t('.edit_expert', expert_name: user.relevant_expert.full_name, antenne: antenne)
               %td.td-header.td-advisor
-                = render 'shared/tooltip', person: user, key: 'advisor'
+                = link_to user.full_name, edit_admin_expert_path(user.relevant_expert), title: t('.edit_expert', expert_name: user.relevant_expert.full_name, antenne: antenne)
               - if index_in_team == 0
                 - grouped_subjects.each_value do |subjects|
                   - subjects.each do |subject, institutions_subjects|

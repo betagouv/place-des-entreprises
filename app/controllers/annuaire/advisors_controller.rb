@@ -10,14 +10,16 @@ module  Annuaire
         .order('antennes.name', 'team_name', 'users.full_name')
         .preload(:antenne, relevant_expert: [:users, :antenne, :experts_subjects])
 
-      @grouped_subjects = @institution.institutions_subjects
+      institutions_subjects = @institution.institutions_subjects
         .preload(:subject, :theme, :experts_subjects, :not_deleted_experts)
+
+      @grouped_subjects = institutions_subjects
         .group_by(&:theme).transform_values{ |is| is.group_by(&:subject) }
 
       respond_to do |format|
         format.html
         format.csv do
-          result = @advisors.export_csv(include_expert_team: true, institutions_subjects: @institutions_subjects)
+          result = @advisors.export_csv(include_expert_team: true, institutions_subjects: institutions_subjects)
           send_data result.csv, type: 'text/csv; charset=utf-8', disposition: "attachment; filename=#{result.filename}.csv"
         end
       end

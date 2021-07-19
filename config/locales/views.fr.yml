@@ -30,6 +30,7 @@ fr:
   annuaire:
     advisors:
       table:
+        edit_expert: Modifier %{expert_name} - %{antenne}
         experts_on_subject: "%{count} référents sur ce sujet"
     base:
       import_errors:
