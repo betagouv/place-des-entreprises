@@ -25,11 +25,36 @@ module ApiRne::Companies
 
   class Responder < ApiRne::Responder
     def format_data
-      registres = @http_request.data.dig('formality','content','registreAnterieur')
-      personne = @http_request.data.dig('formality','content', 'personneMorale') || @http_request.data.dig('formality','content', 'personnePhysique')
+      pp @http_request.data
+      content = @http_request.data.dig('formality','content')
+      registres = content.dig('registreAnterieur')
+      entite = content.dig('personneMorale') || content.dig('personnePhysique') || content.dig('exploitation')
+      autresEtablissements = entite.dig("autresEtablissements") || []
+      autresEtablissementsActivités = autresEtablissements.map do |etablissement|
+        {
+          "siret" => etablissement.dig('descriptionEtablissement', 'siret'),
+          "activites" => etablissement.dig("activites")&.map do |activite|
+            {
+              "dateEffetFermeture" => etablissement.dig('descriptionEtablissement', 'dateEffetFermeture'),
+              "categoryCode" => activite['categoryCode'],
+              "formeExercice" => activite['formeExercice'],
+            }
+          end
+        }
+      end
+
       {
-        "forme_exercice" => @http_request.data.dig('formality', 'content', 'formeExerciceActivitePrincipale'),
-        "categoryCode" => personne.dig('etablissementPrincipal', 'activites', 0, 'categoryCode'),
+        "forme_exercice" => content.dig('formeExerciceActivitePrincipale'),
+        "etablissementPrincipal" => {
+          "siret" => entite.dig('etablissementPrincipal', 'descriptionEtablissement', 'siret'),
+          "activites" => entite.dig('etablissementPrincipal', 'activites')&.map do |activite|
+            {
+              "categoryCode" => activite['categoryCode'],
+              "formeExercice" => activite['formeExercice']
+            }
+          end
+        },
+        "autresEtablissements" => autresEtablissementsActivités,
         "rne_rcs" => registres.present? ? registres['rncs'] : nil,
         "rne_rnm" => registres.present? ? registres['rnm'] : nil,
       }
