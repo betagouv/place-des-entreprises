@@ -26,8 +26,10 @@ module ApiRne::Companies
   class Responder < ApiRne::Responder
     def format_data
       registres = @http_request.data.dig('formality','content','registreAnterieur')
+      personne = @http_request.data.dig('formality','content', 'personneMorale') || @http_request.data.dig('formality','content', 'personnePhysique')
       {
         "forme_exercice" => @http_request.data.dig('formality', 'content', 'formeExerciceActivitePrincipale'),
+        "categoryCode" => personne.dig('etablissementPrincipal', 'activites', 0, 'categoryCode'),
         "rne_rcs" => registres.present? ? registres['rncs'] : nil,
         "rne_rnm" => registres.present? ? registres['rnm'] : nil,
       }
