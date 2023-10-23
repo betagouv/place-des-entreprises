@@ -25,7 +25,7 @@ module ApiRne::Companies
 
   class Responder < ApiRne::Responder
     def format_data
-      pp @http_request.data
+      # pp @http_request.data
       content = @http_request.data.dig('formality','content')
       registres = content.dig('registreAnterieur')
       entite = content.dig('personneMorale') || content.dig('personnePhysique') || content.dig('exploitation')

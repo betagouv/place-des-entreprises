@@ -58,7 +58,7 @@ module Stats::Companies
     end
 
     def colors
-      %w[#dddddd #9f3cca #F45A5B #e78112 #f3dd68 #2D908F #62e0d3]
+      %w[#dddddd #9f3cca #F45A5B #e78112 #f3dd68 #2D908F #62e0d3 #c0ffaf]
     end
 
     def count
