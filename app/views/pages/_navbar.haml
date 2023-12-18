@@ -14,7 +14,7 @@
               %button.fr-btn--menu.fr-btn#fr-btn-menu-mobile-4{ 'aria-controls': 'modal-responsive-menu', 'aria-haspopup': 'menu', 'data-fr-opened': 'false', title: "#{t('pages.navbar.menu')}" }
                 = t('pages.navbar.menu')
         .fr-header__tools
-          %nav.fr-header__tools-links{ role: 'navigation' }
+          .fr-header__tools-links
             %ul.fr-links-group
               %li
                 = link_to t('about.blog.title'), ENV['BLOG_URL'], title: t('.link_to_blog'), class: 'fr-link'
@@ -24,7 +24,5 @@
                 = link_to t('experts_login'), user_signed_in? ? needs_path : new_user_session_path, class: 'fr-link'
   .fr-header__menu.fr-modal#modal-responsive-menu{ 'aria-labelledby': 'fr-btn-menu-mobile-4' }
     .fr-container
-      %button.fr-link--close.fr-link{ 'aria-controls': 'modal-responsive-menu' }= t('pages.navbar.close')
-      %nav.fr-header__menu-links{ 'aria-label': 'Menu principal', role: "navigation" }
-        %ul.fr-nav__list
-          -# Les liens du menu se mettent automatiquement ici
+      %button.fr-btn--close.fr-btn{ 'aria-controls': 'modal-responsive-menu', title: t('pages.navbar.close') }= t('pages.navbar.close')
+      .fr-header__menu-links

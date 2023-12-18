@@ -16,12 +16,9 @@
               .fr-header__navbar
                 %button.fr-btn--menu.fr-btn#fr-btn-menu-mobile-2{ 'aria-controls': 'modal-870', 'aria-haspopup': 'menu', 'data-fr-opened': 'false', title: t('.menu') }
                   = t(".menu")
-          .fr-header__tools
-            .fr-header__tools-links
-              %ul.fr-links-group
     .fr-header__menu.fr-modal#modal-870{ 'aria-labelledby': 'fr-btn-menu-mobile-2' }
       .fr-container
-        %button.fr-link--close.fr-link{ 'aria-controls': 'modal-870' }= t('.close')
+        %button.fr-btn--close.fr-btn{ 'aria-controls': 'modal-870', title: t('.close') }= t('.close')
         .fr-header__menu-links
         %nav.fr-nav{ 'aria-label': t(".main_menu"), role: 'navigation' }
           %ul.fr-nav__list
@@ -61,7 +58,7 @@
               %span.ri-tools-line.fr-mr-1w{ 'aria-hidden': 'true' }
               = t('user_pages.tutoriels.title')
             %li.fr-nav__item.fr-nav__item--align-right
-              %button.fr-nav__btn{ 'aria-controls': "fr-nav-item-account", 'aria-expanded': "false", data: { controller: 'fr-dropdown', action: 'click->fr-dropdown#collapse' } }
+              %button.fr-nav__btn{ 'aria-controls': "fr-nav-item-account", 'aria-expanded': "false" }
                 = t('.account')
               .fr-menu.fr-collapse#fr-nav-item-account
                 %ul.fr-menu__list

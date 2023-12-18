@@ -3,7 +3,6 @@ import accessibleAutocomplete from 'accessible-autocomplete';
 
 (function () {
   addEventListener('turbo:load', setupCityAutocomplete)
-
   const SEARCH_URL = 'https://api-adresse.data.gouv.fr/search/?type=municipality&q='
 
   function setupCityAutocomplete () {

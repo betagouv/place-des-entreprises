@@ -16,11 +16,12 @@ module.exports = {
     $: true,
     require: true,
     _paq: true,
-    Highcharts: true
+    Highcharts: true,
+    Stimulus: true
   },
   overrides: [
     {
-      files: ["config/webpack/**/*.js", "babel.config.js", "postcss.config.js"],
+      files: ["config/webpack/**/*.js"],
       env: {
         node: true,
       },

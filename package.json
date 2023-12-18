@@ -1,28 +1,40 @@
 {
+  "name": "app",
+  "private": true,
   "dependencies": {
-    "@babel/plugin-proposal-private-methods": "^7.18.6",
-    "@babel/plugin-proposal-private-property-in-object": "^7.18.6",
-    "@gouvfr/dsfr": "1.9.0",
-    "@hotwired/turbo-rails": "^7.2.4",
-    "@rails/ujs": "^6.0.3-4",
-    "@rails/webpacker": "5.4.4",
+    "@gouvfr/dsfr": "^1.10.0",
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/stimulus-webpack-helpers": "^1.0.1",
+    "@hotwired/turbo-rails": "^7.3.0",
+    "@rails/webpacker": "^6.0.0-rc.6",
     "@selectize/selectize": "^0.15.2",
-    "@sentry/webpack-plugin": "^1.14.2",
-    "accessible-autocomplete": "^2.0.3",
-    "expose-loader": "^1.0.1",
-    "glob-parent": "^5.1.2",
-    "jquery": "^3.5.1",
-    "normalize-url": "^4.5.1",
-    "postcss": "^8.2.10",
-    "remixicon": "^2.5.0",
-    "stimulus": "^2.0.0",
-    "trim-newlines": "^3.0.1",
-    "whatwg-fetch": "^3.5.0"
+    "accessible-autocomplete": "^2.0.4",
+    "core-js": "^3.32.1",
+    "css-loader": "^6.8.1",
+    "expose-loader": "^4.1.0",
+    "jquery": "^3.7.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "remixicon": "^3.5.0",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "whatwg-fetch": "^3.6.17"
   },
+  "version": "0.1.0",
+  "babel": {
+    "presets": [
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ],
   "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
-    "eslint": "^7.14.0",
-    "webpack-dev-server": "^3.11.0"
+    "@babel/eslint-parser": "^7.22.11",
+    "@webpack-cli/serve": "^2.0.5",
+    "babel-plugin-macros": "^3.1.0",
+    "eslint": "^8.48.0",
+    "webpack-dev-server": "^4.15.1"
   },
   "scripts": {
     "lint:js": "eslint ./app/front/javascripts ./app/assets/javascripts ./config/webpack"

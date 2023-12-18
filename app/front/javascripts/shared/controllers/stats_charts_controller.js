@@ -1,4 +1,4 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 import { percentageStatsCharts } from '../percentage_column_chart'
 import { simpleColumnCharts } from '../simple_column_charts'
 

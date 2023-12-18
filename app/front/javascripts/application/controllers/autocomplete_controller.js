@@ -1,4 +1,4 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 const optionSelector = "[role='option']:not([aria-disabled])"
 const activeSelector = "[aria-selected='true']"
