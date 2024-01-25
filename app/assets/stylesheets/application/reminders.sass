@@ -1,0 +1,35 @@
+.fr-collapse.team-members
+  border-left: 1px solid $grey-light
+  padding-left: 0.4rem
+
+.reminders.card
+  .fr-card__title
+    font-size: 1.6rem
+    margin-bottom: 1rem
+  .card__header
+    flex-direction: column
+    padding-bottom: 0.5rem
+    .fr-card__title, .fr-grid-row
+      width: 100%
+      order: 1
+    &.many_pending_needs
+      background-color: #EEB45C
+    &.medium_pending_needs
+      background-color: #95C8E7
+    &.one_pending_need
+      background-color: #BCDD96
+  .fr-accordion__btn
+    padding: 0.25rem 0.75rem
+
+#experts-reminders-menu
+  a
+    display: flex
+    justify-content: space-between
+  .reminders-icon
+    font-size: 1.5rem
+    &.ri-thunderstorms-line
+      color: #EEB45C
+    &.ri-cloudy-line
+      color: #95C8E7
+    &.ri-sun-line
+      color: #a4c97b

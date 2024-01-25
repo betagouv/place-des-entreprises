@@ -1,0 +1,19 @@
+.tooltip
+  position: relative
+  display: inline-block
+  border-bottom: 1px dashed black
+  cursor: help
+  .tooltiptext
+    visibility: hidden
+    width: 9rem
+    background-color: $white
+    color: $grey-dark
+    text-align: center
+    padding: 0.4rem
+    border-radius: 0.2rem
+    position: absolute
+    z-index: 1
+    filter: drop-shadow(0 2px 6px $grey)
+  &:hover
+    .tooltiptext
+      visibility: visible

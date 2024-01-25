@@ -1,0 +1,23 @@
+.annuaire-region-select
+  select
+    width: 30%
+    margin-bottom: 1rem
+    display: inline
+
+.list-group
+  min-width: 25rem
+  max-height: 10rem
+  position: absolute
+  background: $white
+  overflow-y: scroll
+  list-style: none
+  cursor: pointer
+  box-shadow: 0px 10px 10px -5px $grey-dark
+  z-index: 100
+  .list-group-item
+    &:hover
+      background-color: $grey-lighter
+
+.autocomplete-field
+  .fr-input
+    margin-top: 0.5rem !important

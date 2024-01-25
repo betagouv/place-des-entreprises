@@ -1,0 +1,143 @@
+.list-unstyled
+  list-style: none
+  & > li::before
+    content: none
+
+.order-minus-one
+  order: -1
+  &.bp-sm
+    @media (max-width: $bp-sm)
+      order: 0
+
+.lighter-blue-bg
+  background-color: $blue-light
+
+.white-bg
+  background-color: $white
+
+.warning-main-525-bg
+  background-color: $warning-main-525 !important
+  &:hover
+    background-color: $warning-main-525-hover !important
+
+.error-425-bg
+  background-color: $error-425 !important
+  &:hover
+    background-color: $error-425-hover !important
+
+.success-main-525-bg
+  background: $success-main-525 !important
+  &:hover
+    background-color: $success-main-525-hover !important
+
+.grey-medium-bg
+  background-color: $grey-dark !important
+  &:hover
+    background-color: $grey !important
+
+.hidden
+  display: none
+
+.text-right
+  text-align: right
+
+.float-right
+  float: right
+
+.text-center
+  text-align: center
+
+.bottom_actions
+  display: flex
+  justify-content: space-between
+
+.justify-around
+  display: flex
+  justify-content: space-around
+
+.break-word
+  overflow-wrap: break-word
+  word-wrap: break-word
+  -ms-word-break: break-all
+  word-break: break-word
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto
+  -moz-hyphens: auto
+  -webkit-hyphens: auto
+  hyphens: auto
+/* box shadow pas heureux quand lien sur 2 lignes */
+a.fr-breadcrumb__item a.break-word, .fr-prose a.break-word, [class*=" fr-"] a.break-word, [class^=fr-] a.break-word, [data-fr-reset] a.break-word
+  box-shadow: none
+
+.details--with-title
+  summary
+    h2, h3, h4
+      display: inline-block
+      margin-bottom: 1rem
+      text-decoration: underline
+
+
+.info-icon
+  cursor: help
+
+// Clickable items containing an a
+.block-link
+  position: relative
+  a::after
+    z-index: 1
+    position: absolute
+    content: ""
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+
+.display-flex-center
+  align-items: center
+  justify-content: center
+  display: flex
+
+// Copier-coller du style du dsfr pour pouvoir faire des @extend
+.fr-input-custom
+  display: block
+  width: 100%
+  border-radius: .25rem .25rem 0 0
+  font-size: 1rem
+  line-height: 1.5rem
+  padding: .5rem 1rem
+  color: #161616
+  color: var(--text-label-grey)
+  background-color: #eee
+  background-color: var(--background-contrast-grey)
+  --hover: var(--background-contrast-grey-hover)
+  --active: var(--background-contrast-grey-active)
+  box-shadow: inset 0 -2px 0 0 #3a3a3a
+  box-shadow: inset 0 -2px 0 0 var(--border-plain-grey)
+
+.loader
+  border: 3px solid #f3f3f3
+  border-top: 3px solid $blue
+  border-radius: 50%
+  width: 25px
+  height: 25px
+  animation: spin 0.5s linear infinite
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
+
+button.link
+  &:hover
+    background: none
+    background-image: var(--underline-img), var(--underline-img)
+    background-position: var(--underline-x) calc(100% - 0.16em), var(--underline-x) calc(100% - 0.16em)
+    background-repeat: no-repeat, no-repeat
+    transition: background-size 0s
+    background-size: var(--underline-hover-width) 0.125em, var(--underline-idle-width) 0.0625em
+    --underline-hover-width: var(--underline-max-width)
+
+.fr-ml-auto-imp
+  margin-left: auto !important

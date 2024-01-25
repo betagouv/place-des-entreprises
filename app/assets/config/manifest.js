@@ -2,7 +2,10 @@
 //= link favicon/site.webmanifest
 //= link favicon/browserconfig.xml
 
-//= link_tree ../javascripts .js
-//= link_tree ../stylesheets .css
+//= link_directory ../stylesheets .css
+//= link pages.css
+//= link application.css
 
 //= link highcharts.js
+//= link_tree ../../javascript .js
+//= link_tree ../../../vendor/javascript .js

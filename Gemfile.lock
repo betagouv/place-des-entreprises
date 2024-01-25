@@ -293,6 +293,9 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
     ice_nine (0.11.2)
+    importmap-rails (1.1.5)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     inherited_resources (1.14.0)
       actionpack (>= 6.0)
       has_scope (>= 0.6)
@@ -402,8 +405,6 @@ GEM
     rack-protection (3.2.0)
       base64 (>= 0.1.0)
       rack (~> 2.2, >= 2.2.4)
-    rack-proxy (0.7.7)
-      rack
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (7.0.8)
@@ -565,7 +566,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    semantic_range (3.0.0)
     sentry-rails (5.15.2)
       railties (>= 5.0)
       sentry-ruby (~> 5.15.2)
@@ -616,6 +616,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     squasher (0.7.3)
+    stimulus-rails (1.1.1)
+      railties (>= 6.0.0)
     sysexits (1.2.0)
     temple (0.10.3)
     terminal-table (3.0.2)
@@ -658,11 +660,6 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    webpacker (5.4.4)
-      activesupport (>= 5.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 5.2)
-      semantic_range (>= 2.3.0)
     websocket (1.2.10)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -718,6 +715,7 @@ DEPENDENCIES
   honeypot-captcha
   http
   i18n-tasks
+  importmap-rails
   ip_anonymizer
   jbuilder
   jquery-rails
@@ -770,6 +768,7 @@ DEPENDENCIES
   spring-commands-parallel-tests
   spring-commands-rspec
   squasher
+  stimulus-rails
   terser
   turbo-rails
   user_impersonate2
@@ -777,7 +776,6 @@ DEPENDENCIES
   wannabe_bool
   web-console
   webmock
-  webpacker
 
 RUBY VERSION
    ruby 3.1.2p20

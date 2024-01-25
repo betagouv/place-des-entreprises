@@ -1,0 +1,39 @@
+.solicitation-actions
+  display: flex
+  border-radius: 0.29rem
+  .actions:last-child
+    border-radius: 0 0.2rem 0.2rem 0
+  .actions:first-child
+    border-radius: 0.2rem 0 0 0.2rem
+  .button, .info
+    padding: 1rem
+    border: none
+    cursor: pointer
+    display: flex
+    align-items: center
+    height: 3rem
+    color: $white
+    background: transparent
+    &:hover
+      background: transparent
+  .info
+    cursor: help
+  .dropdown
+    position: relative
+    display: inline-block
+    li
+      padding: 0
+    .dropdown-content
+      display: none
+      position: absolute
+      z-index: 1
+      right: 0
+      filter: drop-shadow(0 2px 6px $grey)
+      a, .clickable
+        padding: 0.5rem 0.5rem 0.5rem 1rem
+        background: none
+        cursor: pointer
+        &:hover
+          background-color: $grey-lighter
+  .dropdown:hover .dropdown-content
+    display: block

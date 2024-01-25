@@ -5,12 +5,13 @@
   = csp_meta_tag
   = tarteaucitron_script
   = tarteaucitron_script_application
-  = stylesheet_pack_tag 'application', media: 'all', data: { 'turbo-track': 'reload' }
+  / = stylesheet_pack_tag 'application', media: 'all', data: { 'turbo-track': 'reload' }
   = stylesheet_link_tag 'application', media: 'all', data: { 'turbo-track': 'reload' }
-  = javascript_pack_tag 'gouvfr-module', type: 'module', data: { 'turbo-track': 'reload' }, nonce: true
-  = javascript_pack_tag 'gouvfr-nomodule', type: 'text/javascript', nomodule: '', data: { 'turbo-track': 'reload' }, nonce: true
-  = javascript_pack_tag 'application', data: { 'turbo-track': 'reload' }, nonce: true
-  = javascript_include_tag 'application', data: { 'turbo-track': 'reload' }, nonce: true
+  / = javascript_pack_tag 'gouvfr-module', type: 'module', data: { 'turbo-track': 'reload' }, nonce: true
+  / = javascript_pack_tag 'gouvfr-nomodule', type: 'text/javascript', nomodule: '', data: { 'turbo-track': 'reload' }, nonce: true
+  / = javascript_pack_tag 'application', data: { 'turbo-track': 'reload' }, nonce: true
+  / = javascript_include_tag 'application', data: { 'turbo-track': 'reload' }, nonce: true
+  = javascript_importmap_tags
 
   = javascript_include_tag 'https://browser.sentry-cdn.com/6.19.6/bundle.min.js', crossorigin: 'anonymous', integrity: "sha512-EnfWeHgbnvVl/d9JaR0pAznICi6nLymkzFdWjd51e/Xxl6j6zekri6WtRFeT2RRrQoZOakJpJcak3O2a2hf25A==", data: { 'turbo-track': 'reload' }, nonce: true
 

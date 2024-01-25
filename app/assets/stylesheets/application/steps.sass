@@ -1,0 +1,68 @@
+.steps
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  .step
+    width: 100%
+  .step__title
+    position: relative
+    background-color: $grey-dark
+    height: 3rem
+    width: 90%
+    display: grid
+    place-items: center
+    color: $white
+    font-size: 1.2rem
+    &.active
+      text-decoration: underline
+      font-weight: bold
+    &.completed
+      background-color: $green
+      &:after
+        border-left: 20px solid $green
+    &:before, &:after
+      content: ""
+      position: absolute
+      border-top: 20px solid transparent
+      border-bottom: 20px solid transparent
+    &:before
+      border-left: 20px solid white
+      left: 0
+    &:after
+      border-left: 20px solid $grey-dark
+      right: -20px
+
+
+.diagnosis-creation-header
+  background-color: $beige
+  margin-top: -3rem
+  .company-description
+    text-align: center
+    ul
+      list-style: none
+
+#matches-app
+  textarea.fr-input#diagnosis_content
+    background-color: $beige
+  .card-matches
+    border: 1px solid $grey-light
+    .card__header
+      display: flex
+      justify-content: space-between
+      align-items: center
+      background-color: $beige
+      padding: 1.5rem
+  .fr-checkbox-group input[type="checkbox"] + label::before
+    top: 0.5rem
+
+#needs-app
+  .subject.checkbox
+    display: block
+  .subject
+    input[type=checkbox] + label
+      cursor: pointer
+    input[type=checkbox] ~ textarea
+      margin-top: 1em
+    input[type=checkbox]:not(checked) ~ textarea, input[type=checkbox]:not(checked) ~ .additional_questions
+      display: none
+    input[type=checkbox]:checked ~ textarea, input[type=checkbox]:checked ~ .additional_questions
+      display: block

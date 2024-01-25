@@ -1,0 +1,129 @@
+.autocomplete__wrapper
+  position: relative
+
+.autocomplete__hint
+  -webkit-appearance: none
+  border: 1px solid #adb9c9
+  border-radius: 0
+  box-sizing: border-box
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  margin-bottom: 0
+  width: 100%
+
+.autocomplete__input
+  position: relative
+  @extend .fr-input-custom
+  margin-top: 0.5rem
+
+.autocomplete__hint
+  color: #b1b4b6
+  position: absolute
+
+.autocomplete__input--show-all-values
+  padding: 5px 34px 5px 5px
+  cursor: pointer
+
+.autocomplete__dropdown-arrow-down
+  z-index: -1
+  display: inline-block
+  position: absolute
+  right: 8px
+  width: 24px
+  height: 24px
+  top: 10px
+
+.autocomplete__menu
+  background-color: $white
+  border: 1px solid #adb9c9
+  border-top: 0
+  color: #0b0c0c
+  margin: 0
+  max-height: 342px
+  overflow-x: hidden
+  padding: 0
+  width: 100%
+  width: calc(100% - 4px)
+
+.autocomplete__menu--visible
+  display: block
+
+.autocomplete__menu--hidden
+  display: none
+
+.autocomplete__menu--overlay
+  box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px
+  left: 0
+  position: absolute
+  top: 100%
+  z-index: 100
+
+.autocomplete__menu--inline
+  position: relative
+
+.autocomplete__option
+  border-bottom: solid #b1b4b6
+  border-width: 1px 0
+  cursor: pointer
+  display: block
+  position: relative
+
+  > *
+    pointer-events: none
+
+  &:first-of-type
+    border-top-width: 0
+
+  &:last-of-type
+    border-bottom-width: 0
+
+.autocomplete__option--odd
+  background-color: #fafafa
+
+.autocomplete__option--no-results
+  background-color: #fafafa
+  color: $grey-dark
+  cursor: not-allowed
+
+.autocomplete__option
+  .activity, p
+    margin: 0
+
+  .small
+    margin: 0
+    font-size: 0.9rem
+    color: $grey-dark
+
+.autocomplete__option--focused, .autocomplete__option:hover
+  background-color: $blue
+  border-color: $blue
+  color: $white
+  outline: 0
+  h1, h2, h3, h4
+    color: $white
+  .small
+    color: $white
+
+.autocomplete__hint, .autocomplete__option
+  padding: 5px
+
+.siret-warn
+  color: var(--red)
+  display: none
+
+.autocomplete-warning
+  display: none
+  margin-top: 0.5rem
+  img
+    height: 2rem
+    margin-right: 1rem
+
+.siret-autocomplete
+  position: relative
+  .loader
+    position: absolute
+    z-index: 3
+    right: 10px
+    top: 6px
+    @media (max-width: $bp-md)
+      top: 40px

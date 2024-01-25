@@ -1,0 +1,62 @@
+.multistep-form
+  .submit-buttons
+    display: flex
+    justify-content: flex-end
+    flex-wrap: wrap
+    .fr-btn
+      display: flex
+      margin-bottom: 0.5rem
+      justify-content: center
+      &:not(:first-child)
+        margin-left: 1rem
+      .icon
+        font-size: 1.5rem
+        justify-content: space-between
+  .contact-delay
+    display: flex
+    .ri-phone-fill
+      margin-right: 0.5rem
+      font-size: 3rem
+      margin-top: 0.8rem
+  .explanation
+    img
+      height: 1.5rem
+  .fr-fieldset__content
+    display: flex
+  .fr-stepper__steps
+    background-image: repeating-linear-gradient(to right, var(--background-active-blue-france) 0%, var(--background-active-blue-france) var(--active-inner), transparent var(--active-inner), transparent var(--active-outer)), repeating-linear-gradient(to right, $white 0%, $white var(--default-inner), transparent var(--default-inner), transparent var(--default-outer)) !important
+  .autocomplete__menu
+    z-index: 2
+  .autocomplete__wrapper
+    input
+      @extend .white-bg
+  .with-js-only
+    display: none
+  .highlight__header
+    display: flex
+    img
+      max-height: 50px
+
+.je-donne-mon-avis
+  a
+    background: none
+
+.legal-notice
+  p
+    font-size: 0.7rem
+    margin: 1.5rem auto 0 auto
+    color: $grey-dark
+  img
+    padding-bottom: 2px
+
+.process_description
+  ul
+    padding-inline-start: 0
+  li
+    display: flex
+    list-style-type: none
+    padding-bottom: 0.5rem
+    .icon
+      margin-right: 0.5rem
+      color: var(--blue-france-sun-113-625)
+      font-size: 2rem

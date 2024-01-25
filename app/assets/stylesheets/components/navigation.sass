@@ -1,0 +1,75 @@
+// Main navigation
+
+.fr-header
+  .pde-logo-sm
+    box-shadow: none
+    img
+      width: 45px
+  .fr-nav__item--active
+    .fr-link
+      pointer-events: initial
+
+@media (max-width: 48em)
+  .fr-header__navbar
+    margin-top: 0
+    padding-top: 0
+    &::after
+      display: none
+  .fr-nav__item > .fr-link
+    justify-content: flex-start
+  .pde-logo-sm
+    display: none
+
+@media (min-width: 990px)
+  .fr-header
+    .fr-nav
+      display: flex
+      justify-content: space-between
+  .fr-header--hidden
+    display: none
+  .fr-header--displayed
+    display: flex
+
+@media (min-width: 62em)
+  .fr-menu__list
+      width: 15rem
+
+// Left menu
+
+@media (min-width: 48em)
+  .fr-sidemenu
+    .fr-sidemenu__inner
+      padding: 0 1rem 0 0.25rem
+
+.item-with-tag
+  display: flex
+  align-items: center
+.fr-sidemenu__list
+  li
+    margin-left: 0.5rem
+  .fr-sidemenu__item--active, .fr-sidemenu__link:hover
+    color: $blue
+  .fr-sidemenu__link
+    i
+      display: contents
+  .fr-tag
+    height: fit-content
+
+a.fr-nav__link[href]:hover
+    color: $blue
+
+.logo-sign-in
+  width: 156px
+
+.breadcrumbs
+  font-weight: bold
+  a
+    font-size: 1rem
+
+.fr-breadcrumb__link[aria-current]
+  background: none
+  cursor: default
+
+.fr-header__operator
+  .fr-responsive-img
+    width: 8.9rem
