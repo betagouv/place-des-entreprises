@@ -316,6 +316,9 @@ Rails.application.routes.draw do
 
   # Redirections =====================================
 
+  # Permanently redirect all requests originally for place-des-entreprises towards conseillers-entreprises
+  match '/(*path)',via: [:get, :post], to: redirect { |path_params, request| "https://conseillers-entreprises.service-public.fr/#{path_params[:path]}" }, status: 301, constraints: { domain: 'place-des-entreprises.beta.gouv.fr' }
+
   get 'profile' => 'users#show'
 
   ## Redirection for compatibility
