@@ -48,6 +48,7 @@ RSpec.describe "Solicitations" do
       let(:landing_subject) { create :landing_subject, slug: "recruter" }
 
       before do
+        create_home_landing
         landing.landing_themes << landing_theme
       end
 

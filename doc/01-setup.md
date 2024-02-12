@@ -55,7 +55,7 @@
         $ gem install foreman
         $ foreman start --procfile=Procfile.dev
 
-    Place des Entreprises is now [running locally](http://localhost:3000)!
+    Website is now [running locally](http://localhost:3000)!
 
 ## SSL on localhost
 

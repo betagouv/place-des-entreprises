@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'api_helper'
 
 RSpec.describe Reminders::ExpertsController do
   login_admin
@@ -73,7 +74,10 @@ RSpec.describe Reminders::ExpertsController do
     let!(:match5) { create :match, status: :done_not_reachable, need: need }
     let!(:match6) { create :match, status: :not_for_me, need: need }
 
-    before { post :send_reminder_email, format: :turbo_stream, params: { id: match1.expert_id } }
+    before do
+      stub_mjml_google_fonts
+      post :send_reminder_email, format: :turbo_stream, params: { id: match1.expert_id }
+    end
 
     it 'send email only for quo match and add a feedback' do
       expect(enqueued_jobs.count).to eq 1

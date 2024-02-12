@@ -1,0 +1,19 @@
+<mj-section>
+  <mj-column>
+    <mj-text>
+      <p><%= t('mailers.hello_name', name: @expert.full_name) %></p>
+
+      <p><%= t('.needs_quo_html', count: @expert.needs_quo_active.size, account_link: link_to(t('.user_account'), new_user_session_url, class: 'underline')) %></p>
+
+      <p><%= t('.call_me') %></p>
+
+      <p><%= t('.at_your_disposal') %></p>
+
+      <p><%= t('mailers.thank_you') %></p>
+
+      <p><%= t('mailers.sincerely') %></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/support_user_signature', support_user: @support_user %>

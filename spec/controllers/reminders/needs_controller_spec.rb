@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'api_helper'
 
 RSpec.describe Reminders::NeedsController do
   login_admin
@@ -50,7 +51,10 @@ RSpec.describe Reminders::NeedsController do
     let!(:match5) { create :match, status: :done_not_reachable, need: need }
     let!(:match6) { create :match, status: :not_for_me, need: need }
 
-    before { post :send_last_chance_email, params: { id: need.id } }
+    before do
+      stub_mjml_google_fonts
+      post :send_last_chance_email, params: { id: need.id }
+    end
 
     it 'send email only for quo match and add a feedback' do
       assert_enqueued_with(job: ActionMailer::MailDeliveryJob)

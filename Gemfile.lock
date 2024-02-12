@@ -356,6 +356,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.21.2)
+    mjml-rails (4.9.0)
     msgpack (1.7.2)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -445,10 +446,6 @@ GEM
       actionview (> 3.1)
       activesupport (> 3.1)
       railties (> 3.1)
-    rails_real_favicon (0.1.1)
-      json (>= 1.7, < 3)
-      rails
-      rubyzip (~> 2)
     railties (7.0.8)
       actionpack (= 7.0.8)
       activesupport (= 7.0.8)
@@ -729,6 +726,7 @@ DEPENDENCIES
   listen
   matrix
   metamagic
+  mjml-rails
   parallel_tests
   pg
   pg_search
@@ -741,7 +739,6 @@ DEPENDENCIES
   rails-erd
   rails-i18n
   rails_autolink
-  rails_real_favicon
   recipient_interceptor
   redis (~> 4.0)
   rorvswild

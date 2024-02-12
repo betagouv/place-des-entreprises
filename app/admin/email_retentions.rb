@@ -31,8 +31,8 @@ ActiveAdmin.register EmailRetention do
       div I18n.t('mailers.company_mailer.intelligent_retention.and_you').html_safe
       div link_to email_retention.first_subject_label, new_solicitation_url(Landing.accueil, Landing.accueil.landing_subjects.joins(:subject).find_by(subject: email_retention.first_subject))
       div link_to email_retention.second_subject_label, new_solicitation_url(Landing.accueil, Landing.accueil.landing_subjects.joins(:subject).find_by(subject: email_retention.second_subject))
-      div I18n.t('mailers.company_mailer.intelligent_retention.why_this_message').html_safe
-      div I18n.t('mailers.company_mailer.intelligent_retention.explanation_html').html_safe
+      div I18n.t('mailers.company_mailer.why_this_message_html').html_safe
+      div I18n.t('mailers.company_mailer.explanation_html').html_safe
     end
   end
 

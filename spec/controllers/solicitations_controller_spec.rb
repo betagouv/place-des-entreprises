@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe SolicitationsController do
+  before { create_home_landing }
+
   describe 'GET #new' do
     let(:landing) { create(:landing) }
     let(:landing_subject) { create(:landing_subject) }

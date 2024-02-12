@@ -10,5 +10,11 @@ FactoryBot.define do
       integration { :api }
       partner_url { 'https://www.example.com' }
     end
+
+    trait :home do
+      :with_subjects
+      slug { 'accueil' }
+      title { 'Accueil' }
+    end
   end
 end

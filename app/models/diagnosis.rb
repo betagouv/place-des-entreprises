@@ -147,7 +147,7 @@ class Diagnosis < ApplicationRecord
     self.matches.update_all(sent_at: Time.zone.now)
     experts.each do |expert|
       self.needs.each do |need|
-        ExpertMailer.notify_company_needs(expert, need).deliver_later
+        ExpertMailer.with(expert: expert, need: need).notify_company_needs.deliver_later
       end
       expert.first_notification_help_email
     end

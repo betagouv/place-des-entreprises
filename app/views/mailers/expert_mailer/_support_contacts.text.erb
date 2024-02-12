@@ -5,7 +5,7 @@
       tel: antenne.support_user.phone_number,
       email: antenne.support_user.email) %>
 <% else %>
-<% Territory.regions.with_support.includes(:support_contact).each do |territory| %>
+<% Territory.regions.with_support.includes(:support_contact).find_each do |territory| %>
 <% support_contact = territory.support_contact %>
 - <%= t('.support_contact',
   region: territory.name,

@@ -1,0 +1,4 @@
+<% return if received_needs.blank? %>
+<% received_needs.each do |need| %>
+  <%= render 'mailers/expert_mailer/need_card', need: need, visited_at: false %>
+<% end %>

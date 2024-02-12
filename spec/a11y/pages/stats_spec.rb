@@ -6,6 +6,7 @@ describe 'about', :js, type: :feature do
   subject { page }
 
   before do
+    create_home_landing
     create_list :match, 2, status: :quo
     create_list :match, 2, status: :taking_care
     create_list :match, 2, status: :done

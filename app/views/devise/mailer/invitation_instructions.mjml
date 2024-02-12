@@ -1,0 +1,31 @@
+<mj-section>
+  <mj-column>
+    <mj-text>
+      <p><%= t('devise.mailer.hello', user_full_name: @resource.full_name) %></p>
+
+      <p><%= t('.description_html', antenne: @resource.antenne.name) %></p>
+
+      <h2 class='style_h3'><%= t('.question_one') %></h2>
+
+      <p><%= t('.answer_one', institution_name: @resource.institution.name) %></p>
+
+      <h2 class='style_h3'><%= t('.question_two') %></h2>
+
+      <p><%= t('.answer_two_html') %></p>
+
+      <h2 class='style_h3'><%= t('.accept_user_invitation_instruction') %></h2>
+    </mj-text>
+
+    <mj-button background-color="#000091" color="white" border-radius="0" font-weight="700">
+      <%= link_to t('.accept'), accept_user_invitation_url(invitation_token: @token), style: 'color: white; text-decoration: none'  %>
+    </mj-button>
+
+    <mj-text>
+      <p><%= t('.looking_forward') %></p>
+
+      <p><%= t('mailers.team_html', url: root_url) %></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/support_contact_block', antenne: @user.antenne, support_contact_label: t('.support_contact_label') %>

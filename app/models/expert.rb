@@ -282,7 +282,7 @@ class Expert < ApplicationRecord
 
   def first_notification_help_email
     return unless received_matches.count == 1
-    ExpertMailer.first_notification_help(self).deliver_later
+    ExpertMailer.with(expert: self).first_notification_help.deliver_later
   end
 
   ## Soft deletion

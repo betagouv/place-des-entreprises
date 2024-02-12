@@ -2,6 +2,7 @@
 fr:
   active_admin:
     meta: Métadonnée
+  advisor_sign_in: Connexion conseillers
   all:
     feminine: Toutes
     masculin: Tous
@@ -25,14 +26,16 @@ fr:
     generic_error: Nous n’avons pas pu récupérer les détails de votre entité auprès de nos partenaires
     invalid_siret_or_siren: L’identifiant (siret ou siren) est invalide
     non_diffusible_error: Nous n’avons pas pu identifier votre entité. Peut-être est-elle non diffusible ?
-  app_name: Place des Entreprises
+  app_name: conseillers-entreprises.service-public.fr
+  app_name_domain: service-public.fr
+  app_name_subdomain: conseillers-entreprises
+  app_tagline: Le service public d'accompagnement des entreprises
   boolean:
     text:
       'false': non
       'true': oui
   cgu: Conditions d’utilisation
   clear_search: Réinitialiser la recherche
-  company_contact: Chefs d’entreprises, cliquez ici
   contact_us: contactez-nous
   cta_button: Échanger avec un conseiller
   date:

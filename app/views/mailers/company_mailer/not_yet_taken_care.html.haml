@@ -2,8 +2,6 @@
 
 %p= t('mailers.hello')
 
-- link_to_root = link_to t('app_name'), root_url(mtm_campaign: 'retention', mtm_kwd: 'sequence-mail-pde')
-
 %p= t('mailers.company_mailer.intro_from_solicitation_html', company: @solicitation.diagnosis.company.name)
 
 %p
@@ -11,10 +9,12 @@
 
 %p= t('.we_continue_to_follow_up_html')
 
+%p= t('.holiday_delay')
+
 %p= t('.thanks_for_your_patience')
 
 %p= t('mailers.cordially')
 
-%p= t('mailers.place_des_entreprises_team_html', link_to_root: link_to_root)
+%p= t('mailers.team_html', url: root_url(mtm_campaign: 'retention', mtm_kwd: 'sequence-mail-pde'))
 
 %p= t('mailers.withdraw_request_html', mailto_link: mailto_contact_us(t('contact_us')))

@@ -15,5 +15,7 @@
         = render 'shared/flashes'
 
       = content_for?(:content) ? yield(:content) : yield # :content is used by sub-layouts (e.g. side_menu)
-
+  - if user_signed_in?
     = render 'footer'
+  - else
+    = render 'pages/footer', footer_landing_themes: @footer_landing_themes, footer_landing: @footer_landing unless in_iframe?

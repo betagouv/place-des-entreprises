@@ -1,10 +1,10 @@
 class UserMailerPreview < ActionMailer::Preview
   def match_feedback
     feedback = Feedback.category_need.sample
-    UserMailer.match_feedback(feedback, feedback.need.experts.sample)
+    UserMailer.with(user: feedback.need.experts.sample, feedback: feedback).match_feedback
   end
 
   def quarterly_report
-    UserMailer.quarterly_report(User.managers.sample)
+    UserMailer.with(user: User.active.managers.sample).quarterly_report
   end
 end

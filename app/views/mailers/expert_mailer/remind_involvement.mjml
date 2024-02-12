@@ -1,0 +1,23 @@
+<mj-section>
+  <mj-column>
+    <mj-text><%= t('mailers.hello') %></mj-text>
+    <mj-text>
+      <%= t('.needs_for_you') %>
+      <p><%= t('.needs_quo') %></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/remind_received_needs',
+  received_needs: @needs_quo,
+  title: t('.needs_quo'),
+  visited_at: false %>
+
+<mj-section>
+  <mj-column>
+    <% link_to_root = link_to t('app_name'), root_url %>
+    <mj-text><%= t('mailers.see_you_on_service_html', link_to_root: link_to_root) %></mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/support_contact_block', antenne: @expert.antenne, support_contact_label: t('.support_contact_label') %>

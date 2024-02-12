@@ -2,9 +2,7 @@
 
 %p= t('mailers.hello')
 
-- link_to_root = link_to t('app_name'), root_url
-
-%p= t('.your_need_html', subject: @need.subject.label, link_to_root: link_to_root)
+%p= t('.your_need_html', subject: @need.subject.label, link_to_root: link_to(t('app_name'), root_url))
 
 %p= t('.no_experts')
 
@@ -14,4 +12,4 @@
 
 %p= t('mailers.best_regards')
 
-%p= t('mailers.place_des_entreprises_team_html', link_to_root: link_to_root)
+%p= t('mailers.team_html', url: root_url)

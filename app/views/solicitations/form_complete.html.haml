@@ -12,8 +12,12 @@
             .fr-alert.fr-alert--success.white-bg.fr-mb-4w
               %h1.fr-alert__title= t('.title')
               %p= t('.iframe_message_html')
-            .thank_you_iframe.fr-mb-6w
-              .logo-pde= image_tag 'logo-PDE.svg', alt: t('logos.pde')
+            .section-pde-partnership-mention.fr-mb-6w
+              .ce-text-logo
+                %p.fr-header__service-title
+                  %span.red>= t('app_name_subdomain').sp_titleize_url
+                  = "." + t('app_name_domain').sp_titleize_url
+                %p.fr-header__service-tagline= t('app_tagline')
           - else
             .fr-alert.fr-alert--success.white-bg.fr-mb-6w
               %h1.fr-alert__title= t('.title')

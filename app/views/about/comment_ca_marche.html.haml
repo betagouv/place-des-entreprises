@@ -30,7 +30,9 @@
 
 .fr-container--fluid.section-grey.fr-py-7w#section-testimonials
   .fr-container
-    = render 'index_testimonials'
+    %h2= t('.business_owners')
+    - @temoignages.each do |temoignage|
+      = render 'about/temoignage', temoignage: temoignage
 
 .fr-container--fluid.section-grey.fr-py-7w
   .fr-container
@@ -49,8 +51,8 @@
                   .fr-col-12.fr-col-md-10.fr-col-lg-8
                     .fr-modal__body
                       .fr-modal__header
-                        %button.fr-btn--close.fr-btn{ 'aria-controls': 'fr-transcription-modal-pde-testimonial', title: t('pages.navbar.close') }
-                          = t('pages.navbar.close')
+                        %button.fr-btn--close.fr-btn{ 'aria-controls': 'fr-transcription-modal-pde-testimonial', title: t('navbar.close') }
+                          = t('navbar.close')
                       .fr-modal__content
                         = render 'about/transcription_pde_testimonial'
                       .fr-transcription__footer

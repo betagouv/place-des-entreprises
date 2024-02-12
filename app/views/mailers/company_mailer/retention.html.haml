@@ -9,17 +9,18 @@
 %p
   %strong= @need.subject.label
 
-%p= t('.remind')
-
 %p= t('.list_html')
+
+- url = root_url(mtm_campaign: 'retention', mtm_kwd: 'mail-retention')
+.btn-wrapper
+  = link_to t('.send_solicitation'), url, class: 'response-btn'
+
+%p= t('mailers.company_mailer.why_this_message_html')
+
+%p= t('mailers.company_mailer.explanation_html')
 
 %p= t('.outro')
 
-%p= t('mailers.thanks_for_your_trust')
-
 %p= t('mailers.cordially')
 
-%p= t('mailers.place_des_entreprises_team_html', link_to_root: link_to_root)
-
-.button
-  = link_to t('.send_solicitation'), root_url(mtm_campaign: 'retention', mtm_kwd: 'mail-retention')
+%p= t('mailers.team_html', url: url)

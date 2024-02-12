@@ -1,0 +1,74 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-text line-height='22px' font-size='14px'>
+      <mj-all font-family="Arial" />
+    </mj-attributes>
+    <mj-style>
+      .fr-header__service-title {
+        font-weight: 700;
+        margin: 0;
+      }
+      .red {
+        color: #ce0500;
+      }
+      .fr-header__service-tagline {
+        line-height: 1.5;
+        margin: 0;
+      }
+      .institution-logo {
+        max-height: 75px;
+        max-width: 90%;
+        padding: 10px 25px;
+      }
+      .card__detail {
+        font-size: 12px;
+        color: #666;
+      }
+      .card__desc {
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 0.25em;
+      }
+      .card__title {
+        font-size: 16px;
+        margin-bottom: 0.25em;
+      }
+      .feedback__content {
+        border-left: 3px solid #ddd;
+        padding-left: 20px;
+        margin-top: 3px;
+        margin-bottom: 28px;
+      }
+      .label {
+        display: contents;
+        font-weight: 700;
+      }
+      .label.green {
+        color: #12882D;
+      }
+      .label.red {
+        color: #e1000f;
+      }
+      .label.grey-blue {
+        color: #6B74A5FF;
+      }
+      .label.blue-dark {
+        color: #292A63FF;
+      }
+      .label.orange {
+        color: #B95E06FF;
+      }
+      .style_h3 {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body width='650px'>
+    <%= render 'mailers/expert_header', institution_logo_name: @institution_logo_name %>
+    <%= yield %>
+    <%= render partial: 'mailers/expert_footer' %>
+  </mj-body>
+</mjml>

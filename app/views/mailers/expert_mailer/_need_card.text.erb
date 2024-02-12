@@ -1,0 +1,10 @@
+<%= need.facility.commune_name %>
+<%= need.company.name %>
+<%= need.subject%>
+<% if visited_at %>
+<%= t('mailers.expert_mailer.remind_involvement.visited_on', date: I18n.l(need.created_at, format: :long)) %>
+<% else %>
+<%= t('mailers.expert_mailer.remind_involvement.visited_days_ago', days: distance_of_time_in_words(Time.now.to_date, need.created_at), advisor: need.diagnosis.advisor.full_name) %>
+<% end %>
+
+<%= [t('mailers.see_diagnosis'), need_url(need)].join(' : ') %>

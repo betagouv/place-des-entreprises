@@ -6,34 +6,31 @@
           .fr-header__brand-top
             .fr-header__logo
               %p.fr-logo
-                République
-                %br/
-                française
-            .fr-header__operator
-              = link_to root_path, class: 'pde-logo', title: t('application.navbar.root_path_title') do
-                = image_tag 'logo-PDE.svg', alt: t('logos.pde'), class: 'logo-sign-in'
+                = t('republique_francaise_html')
             .fr-header__navbar
-              %button.fr-btn--menu.fr-btn#fr-btn-menu-mobile-2{ 'aria-controls': 'modal-870', 'aria-haspopup': 'menu', 'data-fr-opened': 'false', title: t("application.navbar.menu") }
-                = t("application.navbar.menu")
+              %button.fr-btn--menu.fr-btn#fr-btn-menu-mobile-2{ 'aria-controls': 'modal-870', 'aria-haspopup': 'menu', 'data-fr-opened': 'false', title: t("navbar.root_path_title") }
+                = t("navbar.menu")
+          .fr-header__service
+            = link_to root_path do
+              %p.fr-header__service-title
+                %span.red>= t('app_name_subdomain').sp_titleize_url
+                = "." + t('app_name_domain').sp_titleize_url
         .fr-header__tools
-          %nav.fr-header__tools-links{ role: 'navigation' }
-            %ul.fr-links-group
+          .fr-header__tools-links{ role: 'navigation' }
+            %ul.fr-btns-group
               %li
-                = active_link_to comment_ca_marche_path, class: 'fr-link' do
-                  = t('about.comment_ca_marche.title')
-              %li
-                = link_to root_path, class: 'fr-link' do
-                  = t('company_contact')
-              %li
-                = active_link_to tutoriels_path, class: 'fr-link' do
-                  %span.ri-tools-line.fr-mr-1w{ 'aria-hidden': 'true' }
-                  = t('user_pages.tutoriels.title')
-              %li
-                = link_to new_user_session_path, class: 'fr-link' do
-                  %span.ri-tools-line.fr-mr-1w{ 'aria-hidden': 'true' }
-                  = t('sign_in')
+                = link_to t('experts_login'), user_signed_in? ? needs_path : new_user_session_path, class: 'fr-btn fr-icon-lock-line'
+
   / Navigation principale - à garder pour éviter erreurs js sur mobile
   .fr-header__menu.fr-modal#modal-870{ 'aria-labelledby': 'fr-btn-menu-mobile-2' }
     .fr-container
-      %button.fr-link--close.fr-link{ 'aria-controls': 'modal-870' }= t("application.navbar.close")
-      %nav.fr-header__menu-links{ role: 'navigation' }
+      %button.fr-btn--close.fr-btn{ 'aria-controls': 'modal-870' }= t('navbar.close')
+      .fr-header__menu-links{ 'aria-label': t('navbar.main_menu') }
+      %nav.fr-nav{ 'aria-label': t("navbar.main_menu"), role: 'navigation' }
+        %ul.fr-nav__list
+          = active_link_to root_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active', active: :exclusive do
+            %span.ri-home-line.fr-mr-1w{ 'aria-hidden': 'true' }
+            = t('breadcrumbs_helper.home_link.home')
+          = active_link_to comment_ca_marche_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active' do
+            %span.ri-presentation-line.fr-mr-1w{ 'aria-hidden': 'true' }
+            = t('about.comment_ca_marche.title')

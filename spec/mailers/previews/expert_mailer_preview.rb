@@ -3,7 +3,7 @@ class ExpertMailerPreview < ActionMailer::Preview
     expert = active_expert
     need = expert.received_needs.sample
     need.solicitation = Solicitation.joins(:landing).where(landing: { partner_url: [nil, ''] }).sample
-    ExpertMailer.notify_company_needs(expert, need)
+    ExpertMailer.with(expert: expert, need: need).notify_company_needs
   end
 
   def notify_company_needs_from_partner
@@ -13,34 +13,34 @@ class ExpertMailerPreview < ActionMailer::Preview
     need.solicitation = solicitation
     solicitation.landing = Landing.all.sample
     solicitation.landing.update(partner_url: 'https://test.com/formulaire')
-    ExpertMailer.notify_company_needs(expert, need)
+    ExpertMailer.with(expert: expert, need: need).notify_company_needs
   end
 
   def first_notification_help
     expert = active_expert
-    ExpertMailer.first_notification_help(expert)
+    ExpertMailer.with(expert: expert).first_notification_help
   end
 
   def remind_involvement
     expert = Match.sent.status_quo.where(created_at: ..4.days.ago, archived_at: nil).joins(:expert).where(experts: { deleted_at: nil }).sample.expert
-    ExpertMailer.remind_involvement(expert)
+    ExpertMailer.with(expert: expert).remind_involvement
   end
 
   def positioning_rate_reminders
     expert = Expert.not_deleted.many_pending_needs.sample
-    ExpertMailer.positioning_rate_reminders(expert, User.support_users.sample)
+    ExpertMailer.with(expert: expert, support_user: User.support_users.sample).positioning_rate_reminders
   end
 
   def last_chance
     expert = active_expert
     need = expert.received_needs.sample
-    ExpertMailer.last_chance(expert, need, User.support_users.sample)
+    ExpertMailer.with(expert: expert, support_user: User.support_users.sample, need: need).last_chance
   end
 
   def re_engagement
     expert = active_expert
     need = expert.received_needs.sample
-    ExpertMailer.re_engagement(expert, User.support_users.sample, need)
+    ExpertMailer.with(expert: expert, support_user: User.support_users.sample, need: need).re_engagement
   end
 
   private

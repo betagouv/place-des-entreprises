@@ -1,0 +1,21 @@
+<mj-section>
+  <mj-column>
+    <mj-text><%= t('mailers.hello_name', name: @expert.full_name) %></mj-text>
+
+    <mj-text><%= t('.company_solicitation_html', company: @need.company.name, date: I18n.l(@match.created_at, format: :sentence)) %></mj-text>
+
+    <mj-text><%= t('.we_will_cancel_need') %></mj-text>
+
+    <mj-text font-weight='700'><%= t('.will_you_act') %></mj-text>
+
+    <mj-button background-color="#000091" color="white" border-radius="0" >
+      <%= link_to t('mailers.see_diagnosis'), need_url(@need), style: 'color: white; text-decoration: none' %>
+    </mj-button>
+
+    <mj-text><%= t('.at_your_disposal') %></mj-text>
+
+    <mj-text><%= t('mailers.sincerely') %></mj-text>
+
+    <mj-text><%= @support_user.full_name %></mj-text>
+  </mj-column>
+</mj-section>

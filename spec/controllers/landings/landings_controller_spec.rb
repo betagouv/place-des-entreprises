@@ -3,10 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Landings::LandingsController do
+  before { create_home_landing }
+
   describe 'GET #show' do
     context 'existing home landing page' do
-      let!(:landing) { create :landing, slug: 'accueil' }
-
       it do
         get :home
         expect(response).to be_successful

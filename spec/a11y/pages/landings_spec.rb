@@ -15,18 +15,16 @@ describe 'landings', :js, type: :feature do
   end
 
   describe '/aide-entreprise/:landing_slug' do
-    before { visit "/aide-entreprise/#{Landing.last.slug}" }
-
-    it do
-      is_expected.to be_accessible
+    before do
+      visit "/aide-entreprise/#{Landing.last.slug}"
     end
+
+    it { is_expected.to be_accessible }
   end
 
   describe '/aide-entreprise/:landing_slug/theme/:slug' do
     before { visit "/aide-entreprise/#{landing.slug}/theme/#{landing_theme.slug}" }
 
-    it do
-      is_expected.to be_accessible
-    end
+    it { is_expected.to be_accessible }
   end
 end

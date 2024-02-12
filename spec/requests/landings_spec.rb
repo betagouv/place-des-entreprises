@@ -101,5 +101,35 @@ RSpec.describe "Landings" do
         end
       end
     end
+
+    context "bascule" do
+      let!(:home_landing) { create :landing, slug: 'accueil' }
+      let(:landing_theme) { create :landing_theme, slug: "recrutement-formation" }
+
+      before do
+        home_landing.landing_themes << landing_theme
+      end
+
+      context 'root_url' do
+        xit 'redirects to new url' do
+          get "https://place-des-entreprises.beta.gouv.fr"
+          expect(response).to redirect_to("https://conseillers-entreprises.service-public.fr")
+        end
+      end
+
+      context "with pk params" do
+        xit 'redirects with pk params' do
+          get "/aide-entreprise/accueil/theme/recrutement-formation"
+          expect(response).to redirect_to("https://conseillers-entreprises.service-public.fr/aide-entreprise/accueil/theme/recrutement-formation?pk_campaign=FOO&pk_kwd=BAR")
+        end
+      end
+
+      context 'landing_url' do
+        xit 'redirects to new url' do
+          get "https://place-des-entreprises.beta.gouv.fr/aide-entreprise/accueil/theme/recrutement-formation"
+          expect(response).to redirect_to("https://conseillers-entreprises.service-public.fr/aide-entreprise/accueil/theme/recrutement-formation")
+        end
+      end
+    end
   end
 end

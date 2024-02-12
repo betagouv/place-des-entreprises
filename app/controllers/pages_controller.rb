@@ -4,6 +4,7 @@ class PagesController < SharedController
   include GeocoderIp
 
   before_action :setup_cookie_text
+  before_action :fetch_themes
 
   ## Configuration for honeypot-captcha
   #

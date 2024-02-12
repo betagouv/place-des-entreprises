@@ -37,5 +37,5 @@ def side_menu_link(path)
 end
 
 def create_home_landing
-  home_landing = create(:landing, :with_subjects, slug: 'accueil')
+  create(:landing, :with_subjects, slug: 'accueil', title: 'Accueil')
 end

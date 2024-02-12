@@ -1,0 +1,23 @@
+<%= t('mailers.hello') %>
+
+<%= t('.received_need') %>
+
+<%= t('.what_is_pde') %>
+
+<%= t('.answer') %>
+
+<%= t('.answer_continuation') %>
+
+<%= t('.answer_3') %>
+
+<%= t('.response_delay') %>
+
+<%= t('.need_help') %>
+
+<%= t('.pde_contact') %>
+
+<%= render 'mailers/expert_mailer/support_contacts', antenne: @expert.antenne %>
+
+<%= ActionView::Base.full_sanitizer.sanitize(t('.watch_videos_html')) %>: https://www.youtube.com/channel/UChkL6bCbXqI2mV66tuOZPgQ/featured
+
+<%= ActionView::Base.full_sanitizer.sanitize(t('mailers.see_you_on_service_html', link_to_root: link_to(t('app_name'), root_url))) %>

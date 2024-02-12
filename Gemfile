@@ -75,6 +75,7 @@ gem 'caxlsx'
 gem 'caxlsx_rails'
 gem 'split', require: 'split/dashboard'
 gem 'matrix'
+gem 'mjml-rails'
 
 # Notifiers
 gem "sentry-ruby"
@@ -129,7 +130,6 @@ group :development do
   gem 'web-console'
   gem 'annotate'
   gem 'letter_opener_web'
-  gem 'rails_real_favicon'
   gem 'bullet'
   gem 'squasher'
 

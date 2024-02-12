@@ -13,10 +13,10 @@ The `beta.gouv.fr` is registered on OVH by the DINUM, the `place-des-entreprises
 
 ## Branches and setup
 
-Place des Entreprises is deployed on [Scalingo](http://doc.scalingo.com/languages/ruby/getting-started-with-rails/), with two distinct environment, `reso-staging` and `reso-production.` (Reso is an old name of the project.)
+Conseillers-entreprises.service-public.fr is deployed on [Scalingo](http://doc.scalingo.com/languages/ruby/getting-started-with-rails/), with two distinct environment, `reso-staging` and `reso-production.` (Reso is an old name of the project.)
 
 * `reso-staging` is served at https://reso-staging.scalingo.io.
-* `reso-production` is the actual https://place-des-entreprises.beta.gouv.fr
+* `reso-production` is the actual https://conseillers-entreprises.service-public.fr
 
 There are GitHub to Scalingo hooks setup for auto-deployment:
 * The `main` branch is automatically deployed to the `reso-staging` env.
@@ -31,7 +31,7 @@ In case of emergency, you can always run the rails console in production using t
 
 ## HSTS
 
-HTTP Strict Transport Security is enabled in the app config (`config.force_ssl = true`) ; it’s disabled in the Scalingo settings, otherwise it duplicates the value in the header, which is invalid. Although browsers seem to tolerate it, security checks like [Mozilla Observatory](https://observatory.mozilla.org/analyze/place-des-entreprises.beta.gouv.fr) complain about it.
+HTTP Strict Transport Security is enabled in the app config (`config.force_ssl = true`) ; it’s disabled in the Scalingo settings, otherwise it duplicates the value in the header, which is invalid. Although browsers seem to tolerate it, security checks like [Mozilla Observatory](https://observatory.mozilla.org/analyze/conseillers-entreprises.service-public.fr) complain about it.
 
 ## Release
 
@@ -55,7 +55,7 @@ Make sure these are the changes you expect to push to production.
 * there may be substantial changes that require deeper testing;
 * it’s ok to push small changes often;
 * some changes may require a new environment variable to be defined, or some data might be manually migrated;
-* let the team know about the impending release on the Slack channel.
+* let the team know about the impending release on the team discussion interface.
 
 ```
 y

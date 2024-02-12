@@ -34,8 +34,10 @@
     = render 'pages/navbar' unless in_iframe?
     = render 'environment_ribbon'
     = render 'user_impersonate'
-    = render 'shared/flashes'
     %main#content{ role: 'main' }
+      = render 'shared/site_switch_info' unless in_iframe?
+      = render 'shared/flashes'
+
       = content_for?(:content) ? yield(:content) : yield # :content is used by sub-layouts
 
-    = render 'pages/footer' unless in_iframe?
+    = render 'footer', footer_landing_themes: @footer_landing_themes, footer_landing: @footer_landing unless in_iframe?

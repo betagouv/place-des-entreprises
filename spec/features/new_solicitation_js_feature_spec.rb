@@ -7,7 +7,7 @@ require 'api_helper'
 # TODO
 describe 'New Solicitation', :js, :flaky do
   let(:pde_subject) { create :subject }
-  let!(:landing) { create :landing, slug: 'accueil', title: 'Test Landing' }
+  let!(:landing) { create :landing, slug: 'accueil', title: 'Accueil' }
   let(:landing_theme) { create :landing_theme, title: "Test Landing Theme" }
   let!(:landing_subject) { create :landing_subject, landing_theme: landing_theme, subject: pde_subject, title: "Super sujet", description: "Description LS", requires_siret: true }
   let(:siret) { '41816609600069' }
@@ -65,7 +65,7 @@ describe 'New Solicitation', :js, :flaky do
 
         it do
           visit '/?recrutement_poste_cadre=true&recrutement_en_apprentissage=false'
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
 
           # Etape contact
@@ -147,7 +147,7 @@ describe 'New Solicitation', :js, :flaky do
 
         it do
           visit "/?siret=#{query}"
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Email', with: 'user@example.com'
@@ -190,7 +190,7 @@ describe 'New Solicitation', :js, :flaky do
 
         it do
           visit '/'
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Email', with: 'user@example.com'
@@ -237,7 +237,7 @@ describe 'New Solicitation', :js, :flaky do
 
         it do
           visit '/'
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Email', with: 'user@example.com'
@@ -287,7 +287,7 @@ describe 'New Solicitation', :js, :flaky do
 
         it do
           visit '/'
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Email', with: 'user@example.com'
@@ -325,7 +325,7 @@ describe 'New Solicitation', :js, :flaky do
 
         it do
           visit '/'
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Email', with: 'user@example.com'

@@ -7,27 +7,28 @@
             .fr-header__brand-top
               .fr-header__logo
                 %p.fr-logo
-                  République
-                  %br/
-                  française
+                  = t('republique_francaise_html')
               .fr-header__operator
-                = link_to root_path, class: 'pde-logo', title: t('.root_path_title') do
-                  = image_tag 'logo-PDE.svg', alt: t('logos.pde')
+                = link_to root_path, class: 'fr-nav__link bold', title: t('navbar.root_path_title') do
+                  %span.red>= t('app_name_subdomain').sp_titleize_url
+                  %br
+                  = "." + t('app_name_domain').sp_titleize_url
               .fr-header__navbar
-                %button.fr-btn--menu.fr-btn#fr-btn-menu-mobile-2{ 'aria-controls': 'modal-870', 'aria-haspopup': 'menu', 'data-fr-opened': 'false', title: t('.menu') }
-                  = t(".menu")
+                %button.fr-btn--menu.fr-btn#fr-btn-menu-mobile-2{ 'aria-controls': 'modal-870', 'aria-haspopup': 'menu', 'data-fr-opened': 'false', title: t('navbar.menu') }
+                  = t("navbar.menu")
           .fr-header__tools
             .fr-header__tools-links
               %ul.fr-links-group
     .fr-header__menu.fr-modal#modal-870{ 'aria-labelledby': 'fr-btn-menu-mobile-2' }
       .fr-container
-        %button.fr-link--close.fr-link{ 'aria-controls': 'modal-870' }= t('.close')
+        %button.fr-link--close.fr-link{ 'aria-controls': 'modal-870' }= t('navbar.close')
         .fr-header__menu-links
-        %nav.fr-nav{ 'aria-label': t(".main_menu"), role: 'navigation' }
+        %nav.fr-nav{ 'aria-label': t("navbar.main_menu"), role: 'navigation' }
           %ul.fr-nav__list
             %li.fr-nav__item
-              = link_to root_path, class: 'pde-logo-sm', title: t('.root_path_title') do
-                = image_tag 'place-des-entreprises-logo.png', alt: t('logos.pde')
+              = active_link_to root_path, class: 'fr-nav__link fr-text--bold', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active', title: t('navbar.root_path_title'), active: :exclusive do
+                %span.red>= t('app_name_subdomain').sp_titleize_url
+                = "." + t('app_name_domain').sp_titleize_url
             - if current_user.experts.present?
               = active_link_to needs_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active' do
                 %span.ri-inbox-fill.fr-mr-1w{ 'aria-hidden': 'true' }

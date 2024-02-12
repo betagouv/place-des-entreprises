@@ -1,0 +1,23 @@
+<mj-section>
+  <mj-column border='1px solid #ddd' padding-bottom="13px">
+    <mj-text>
+      <div>
+        <p class="card__detail"><%= need.facility.commune_name %></p>
+      </div>
+      <h3 class="card__title">
+        <%= link_to need.company.name, need_url(need) %>
+      </h3 >
+      <p class="card__desc"><%= need.subject%></p>
+      <%= yield :card_content %>
+      <div>
+        <% if visited_at %>
+          <p class="card__detail"><%= t('mailers.expert_mailer.remind_involvement.visited_on', date: I18n.l(need.created_at, format: :long)) %></p>
+        <% else %>
+          <p class="card__detail"><%= t('mailers.expert_mailer.remind_involvement.visited_days_ago', days: distance_of_time_in_words(Time.now.to_date, need.created_at), advisor: need.diagnosis.advisor.full_name) %></p>
+        <% end %>
+    </mj-text>
+    <mj-button background-color="#000091" color="white" border-radius="0" >
+      <%= link_to t('mailers.see_diagnosis'), need_url(need), style: 'color: white; text-decoration: none' %>
+    </mj-button>
+  </mj-column>
+</mj-section>

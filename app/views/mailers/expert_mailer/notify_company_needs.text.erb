@@ -1,31 +1,17 @@
 <%= t('mailers.hello') %>
 
-<%= t('.this_company') %> :
+<%= ActionView::Base.full_sanitizer.sanitize(t('.company_needs_you_html', subject: @need.subject)) %> :
 
-  <%= @diagnosis.company %>
-  <%= @diagnosis.facility.commune_name %>
-
-<%= ActionView::Base.full_sanitizer.sanitize(t('.needs_you_html', subject: @need.subject)) %>
+<%= render 'mailers/expert_mailer/need_card', need: @need, visited_at: false %>
 
 <% if @solicitation.present? && @solicitation.landing&.partner_url.present? %>
-<%= ActionView::Base.full_sanitizer.sanitize(t('.via_partner_html', date: I18n.l(@solicitation.created_at, format: :long), url: @solicitation.landing.partner_url)) %>
-<% else %>
-  <% advisor = @diagnosis.advisor %>
-<%= ActionView::Base.full_sanitizer.sanitize(t('.advisor_met_company_html',
-  name: advisor.full_name,
-  antenne: advisor.antenne.name,
-  visit_date: I18n.l(@diagnosis.display_date, format: :long))) %>
+<%= ActionView::Base.full_sanitizer.sanitize(t('.via_partner_html', url: @solicitation.landing.partner_url)) %>
 <% end %>
-
-<%= t('mailers.see_diagnosis') %> : <%= need_url(@need) %>
 
 
 <%= t('mailers.thanks_for_your_trust') %>
-<%= t('mailers.see_you_on_place_des_entreprises_html', link_to_root: root_url) %>
+<%= t('mailers.see_you_on_service_html', link_to_root: root_url) %>
 
 ---
+<%= render 'mailers/expert_mailer/support_contact_block', antenne: @expert.antenne, support_contact_label: t('.support_contact_label') %>
 
-<%= t('.support_contact_label') %>
-<%= render 'mailers/expert_mailer/support_contacts', antenne: @expert.antenne %>
-
-<%= render 'mailers/footer' %>

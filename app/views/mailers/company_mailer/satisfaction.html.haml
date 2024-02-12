@@ -31,6 +31,4 @@
 
 %p= t('mailers.cordially')
 
-- link_to_root = link_to t('app_name'), root_url(mtm_campaign: 'retention', mtm_kwd: 'sequence-mail-pde')
-
-%p= t('mailers.place_des_entreprises_team_html', link_to_root: link_to_root)
+%p= t('mailers.team_html', url: root_url(mtm_campaign: 'retention', mtm_kwd: 'sequence-mail-pde'))

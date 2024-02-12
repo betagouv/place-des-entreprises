@@ -9,7 +9,7 @@
   visited_at: false %>
 ---
 
-<%= ActionView::Base.full_sanitizer.sanitize(t('mailers.see_you_on_place_des_entreprises_html', link_to_root: link_to_root)) %>
+<%= ActionView::Base.full_sanitizer.sanitize(t('mailers.see_you_on_service_html', link_to_root: link_to_root)) %>
 
 <%= t('.support_contact_label') %>
 <%= render 'mailers/expert_mailer/support_contacts', antenne: @expert.antenne %>

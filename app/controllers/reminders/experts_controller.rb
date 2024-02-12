@@ -60,7 +60,7 @@ module Reminders
 
     def send_reminder_email
       expert = Expert.find(params.permit(:id)[:id])
-      ExpertMailer.positioning_rate_reminders(expert, current_user).deliver_later
+      ExpertMailer.with(expert: expert, support_user: current_user).positioning_rate_reminders.deliver_later
       Feedback.create(user: current_user, category: :expert_reminder, description: t('.email_send'),
                       feedbackable_type: 'Expert', feedbackable_id: expert.id)
 
@@ -79,7 +79,7 @@ module Reminders
       need = expert.received_quo_matches.with_status_quo_active&.first&.need
       respond_to do |format|
         if need.present?
-          ExpertMailer.re_engagement(expert, current_user, need).deliver_later
+          ExpertMailer.with(expert: expert, support_user: current_user, need: need).re_engagement.deliver_later
           Feedback.create(user: current_user, category: :expert_reminder, description: t('.re_engagement_email_send'),
                           feedbackable_type: 'Expert', feedbackable_id: expert.id)
 

@@ -262,7 +262,7 @@ fr:
         users: Conseillers
       landing:
         custom_css: CSS personnalisé
-        display_pde_partnership_mention: Afficher le partenariat PDE (logo + phrase en bas d’iframe)
+        display_pde_partnership_mention: Afficher le partenariat Conseillers-Entreprises (logo + phrase en bas d’iframe)
         emphasis: Mettre en avant sur la page d’accueil
         featured_on_home: Champs encart page d’accueil
         home_description: Description sur la page d’accueil
@@ -590,7 +590,7 @@ fr:
         user:
           attributes:
             email:
-              taken: est déjà inscrit sur Place des Entreprises.
+              taken: est déjà inscrit sur Conseillers-entreprises.service-public.fr.
     models:
       additional_subject_question:
         one: Question additionnelle
@@ -735,7 +735,7 @@ fr:
     quarter_stats_by_region: Stats trim. par region
     quarter_stats_by_subject: Stats trim. par sujet
     quo: Taux de sans réponse
-    quo_caption_definition: L’expert ne s’est pas positionné sur le besoin malgré les relances de l’équipe Place des Entreprises.
+    quo_caption_definition: L’expert ne s’est pas positionné sur le besoin malgré les relances de l’équipe de Conseillers-Entreprises.
     quo_caption_label: En attente de réponse
     quo_rate: Taux de sans réponse
     region: Région

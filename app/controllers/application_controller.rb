@@ -3,6 +3,7 @@ class ApplicationController < SharedController
   # implicitly uses the 'application' layout
 
   before_action :authenticate_user!
+  before_action :fetch_themes, if: :devise_controller?
 
   def authenticate_admin!
     current_user.is_admin? || not_found

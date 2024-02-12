@@ -1,19 +1,5 @@
 <% return if received_needs.blank? %>
-
-<%= title %>
-<%= local_assigns[:subtitle] %>
-<% diagnoses = Diagnosis.where(needs: received_needs).distinct.order!(happened_on: :desc) %>
-<% diagnoses.each do |diagnosis| %>
-  <%= t('.company') %> <%= diagnosis.company.name %>
-  <% if visited_at %>
-<%= t('mailers.expert_mailer.remind_involvement.visited_on', date: I18n.l(diagnosis.display_date, format: :long)) %>
-
-  <% else %>
-<%= t('mailers.expert_mailer.remind_involvement.visited_days_ago', days: distance_of_time_in_words(Time.now.to_date, diagnosis.display_date), advisor: diagnosis.advisor.full_name) %>
-    <% diagnosis.needs.merge(received_needs).each do |need| %>
-<%= Subject.model_name.human %> : <%= need.subject %>
-=> <%= t('mailers.see_diagnosis') %> : <%= need_url(need) %>
-
-    <% end%>
-  <% end%>
-<% end%>
+<% received_needs.each do |need| %>
+    <%= render 'mailers/expert_mailer/need_card', need: need, visited_at: false %>
+  ---
+<% end %>

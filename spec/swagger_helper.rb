@@ -18,19 +18,19 @@ RSpec.configure do |config|
     'v1/swagger.yaml' => {
       openapi: '3.0.1',
       info: {
-        title: 'API Place des Entreprises V1',
-        description: "## Bienvenue sur la documentation de l’API de Place des Entreprises
-        \nCette API permet à une organisation de proposer un formulaire de dépôt de besoin d'entreprise connecté à Place des Entreprises sur son propre site internet.
+        title: 'API Conseillers-entreprises.service-public.fr V1',
+        description: "## Bienvenue sur la documentation de l’API de Conseillers-entreprises.service-public.fr
+        \nCette API permet à une organisation de proposer un formulaire de dépôt de besoin d'entreprise connecté à Conseillers-entreprises.service-public.fr sur son propre site internet.
         \nConcrètement, cette API permet de :
         \n- récupérer la liste des pages d'atterrisage, thèmes et sujets autorisés pour l'organisation concernée,
-        \n- d'envoyer à Place des Entreprises un besoin
+        \n- d'envoyer à Conseillers-entreprises.service-public.fr un besoin
         \n### Limite des requêtes
         \nLe serveur accepte un maximum de 300 appels  par 5 minutes.
         ",
         version: '1.0.0',
         contact: {
           name: 'Équipe technique',
-          email: 'tech@place-des-entreprises.beta.gouv.fr'
+          email: 'tech@conseillers-entreprises.service-public.fr'
         }
       },
       tags: [
@@ -41,7 +41,7 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'https://place-des-entreprises.beta.gouv.fr',
+          url: 'https://conseillers-entreprises.service-public.fr',
         },
         {
           url: 'https://reso-staging.osc-fr1.scalingo.io',
@@ -180,7 +180,7 @@ RSpec.configure do |config|
           bearer_auth: {
             type: :http,
             scheme: :bearer,
-            description: "Le jeton vous est fourni après étude de votre demande par Place des Entreprises.
+            description: "Le jeton vous est fourni après étude de votre demande par Conseillers-entreprises.service-public.fr.
             \nIl doit être placé dans le header '`Authorization: Bearer VOTRE_JETON`'.
             \nSa validité est de 18 mois, renouvelable sur demande."
           }

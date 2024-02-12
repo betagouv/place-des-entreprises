@@ -1,0 +1,8 @@
+<mj-section>
+  <mj-column>
+    <mj-divider width='80%' border-width="3px" border-color="lightgrey"/>
+    <mj-text>
+      <%= t('mailers.footer.contact_us_html', mailto_link: mailto_contact_us(t('mailers.footer.contact_us_mailto_text'))) %>
+    </mj-text>
+  </mj-column>
+</mj-section>

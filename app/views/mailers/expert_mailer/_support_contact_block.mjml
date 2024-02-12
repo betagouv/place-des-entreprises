@@ -1,0 +1,8 @@
+<mj-section>
+  <mj-column background-color='#efefef' border-left='3px solid #888'>
+    <mj-text color='#333'>
+      <p><%= support_contact_label %> </p>
+      <%= render 'mailers/expert_mailer/support_contacts', antenne: antenne %>
+    </mj-text>
+  </mj-column>
+</mj-section>

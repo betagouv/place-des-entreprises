@@ -12,10 +12,9 @@ class SharedController < ActionController::Base
   ].freeze
 
   protect_from_forgery with: :exception
-
-  before_action :set_sentry_context
-
   rescue_from Exception, with: :render_error
+
+  before_action :set_sentry_context, :http_authentication
 
   def not_found
     raise ActionController::RoutingError, 'Not Found'
@@ -56,5 +55,20 @@ class SharedController < ActionController::Base
 
   def respond_with_status(status)
     render "shared/errors/#{status}", status: status, layout: 'pages'
+  end
+
+  def http_authentication
+    if Rails.env.production? && ENV['SP_AUTHENTICATION_ACTIVATED'].to_b
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV['SP_LOGIN'] && password == ENV['SP_PASSWORD']
+      end
+    end
+  end
+
+  def fetch_themes
+    @footer_landing = Landing.accueil
+    @footer_landing_themes = Rails.cache.fetch('footer_landing_themes', expires_in: 1.hour) do
+      @footer_landing.landing_themes.not_archived.order(:position)
+    end
   end
 end

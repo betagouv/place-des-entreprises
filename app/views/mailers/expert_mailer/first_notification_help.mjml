@@ -1,0 +1,29 @@
+<mj-section>
+  <mj-column>
+    <mj-text><%= t('mailers.hello') %></mj-text>
+
+    <mj-text><%= t('.received_need') %></mj-text>
+
+    <mj-text font-weight='700'>
+      <%= t('.what_is_pde') %>
+    </mj-text>
+
+    <mj-text><%= t('.answer') %></mj-text>
+
+    <mj-text><%= t('.answer_continuation') %></mj-text>
+
+    <mj-text><%= t('.answer_3') %></mj-text>
+
+    <mj-text><%= t('.response_delay') %></mj-text>
+
+    <mj-text font-weight='700'><%= t('.need_help') %></mj-text>
+
+    <mj-text><%= t('.pde_contact') %></mj-text>
+
+    <%= render 'mailers/expert_mailer/support_contacts', antenne: @expert.antenne %>
+
+    <mj-text><%= t('.watch_videos_html') %></mj-text>
+
+    <mj-text><%= t('mailers.see_you_on_service_html', link_to_root: link_to(t('app_name'), root_url)) %></mj-text>
+  </mj-column>
+</mj-section>

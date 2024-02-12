@@ -12,6 +12,7 @@ describe 'Landings', :js, :flaky do
     let!(:landing) { create :landing, integration: :intern, slug: 'intern', layout: 'single_page' }
 
     before do
+      create_home_landing
       landing.landing_themes << landing_theme
     end
 

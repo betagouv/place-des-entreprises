@@ -7,8 +7,8 @@
       .fr-col-12.fr-col-md-8.fr-col-lg-6
         .fr-modal__body
           .fr-modal__header
-            %button.fr-btn--close.fr-btn{ 'aria-controls': "modal-#{type}-#{person.id}", title: t('application.navbar.close') }
-              = t('application.navbar.close')
+            %button.fr-btn--close.fr-btn{ 'aria-controls': "modal-#{type}-#{person.id}", title: t('navbar.close') }
+              = t('navbar.close')
           .fr-modal__content
             %h1.fr-modal__title{ id: "modal-#{type}-#{person.id}-title" }
               %span.fr-icon-arrow-right-line.fr-icon--lg{ 'aria-hidden': 'true' }

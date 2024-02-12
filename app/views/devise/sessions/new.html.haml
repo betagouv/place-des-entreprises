@@ -7,7 +7,7 @@
 .fr-container
   .fr-grid-row.fr-grid-row--center.fr-grid-row--gutters.fr-mb-5w
     .fr-col-12.fr-col-md-10.fr-col-lg-8
-      %h1.fr-mb-5w= t('sign_in')
+      %h1.fr-mb-5w= t('advisor_sign_in')
       = form_for resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } } do |f|
         .fr-fieldset
           .fr-fieldset__element

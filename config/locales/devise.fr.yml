@@ -12,16 +12,16 @@ fr:
     forgot_password: Mot de passe oublié ou inconnu ?
     invitations:
       edit:
-        accept_cgu_html: J’ai lu et j’accepte les <a href='%{cgu_path}'>conditions d’utilisation de Place des Entreprises</a>
-        header: Bienvenue sur Place des Entreprises
+        accept_cgu_html: J’ai lu et j’accepte les <a href='%{cgu_path}'>conditions d’utilisation de Conseillers-entreprises.service-public.fr</a>
+        header: Bienvenue sur Conseillers-Entreprises, un service de Service-Public.fr
         password_description: 'Choisissez un mot de passe pour créer votre compte :'
         prefilled_description: 'Certaines informations ont été préremplies; vous pouvez les corriger si nécessaire :'
         submit_button: Enregistrer
       invitation_removed: Votre invitation a été annulée.
-      invitation_token_invalid: Ce lien d’invitation est invalide ou expiré. Vous avez peut-être reçu une invitation plus récente. Si ce n'est pas le cas, écrivez-nous à contact@place-des-entreprises.beta.gouv.fr pour recevoir une nouvelle invitation.
+      invitation_token_invalid: Ce lien d’invitation est invalide ou expiré. Vous avez peut-être reçu une invitation plus récente. Si ce n'est pas le cas, écrivez-nous à contact@conseillers-entreprises.service-public.fr pour recevoir une nouvelle invitation.
       new:
         description: 'L’inscription est réservée aux conseillers d’organismes publics : préférez une adresse mail professionnelle fournie par votre organisme.'
-        header: Inviter un conseiller sur Place des Entreprises
+        header: Inviter un conseiller sur Conseillers-Entreprises
         submit_button: Envoyer l’invitation
       send_instructions: Un email d’invitation a été envoyé à %{email}.
       updated: Mot de passe enregistré. Vous êtes maintenant connecté.
@@ -29,32 +29,31 @@ fr:
       hello: Bonjour %{user_full_name},
       invitation_instructions:
         accept: Choisir mon mot de passe
-        accept_user_invitation_instruction: 'Pour rejoindre la communauté, choisissez votre mot de passe :'
-        answer_one: Après une expérimentation réussie en Hauts-de-France, %{institution_name} est partenaire du service Place des Entreprises en vertu d’un accord de coopération national, décliné localement. D’après les données communiquées, vous avez été identifié(e) pour participer à cette nouvelle dynamique.
-        answer_two_html: "<p>Financé par le Ministère de l’Économie et le Ministère du Travail, ce service permet d’offrir un conseil humain et de proximité aux TPE et PME.</p><p>En fonction du sujet choisi, le chef d’entreprise est mis en relation avec le(s) bon(s) conseiller(s) au sein des administrations, collectivités, organismes publics et parapublics chargés de l’accompagner sur son territoire.</p><p>Vous pouvez ainsi échanger sur une demande d’entreprise avec des conseillers du service public, travaillant dans d’autres structures. Le service compte plus de 40 partenaires ! </p>"
-        description_html: Vous êtes invité·e à rejoindre le service public %{link_to_root}, au sein de l’antenne %{antenne}.
+        accept_user_invitation_instruction: 'Pour recevoir des besoins et rejoindre la communauté, choissisez votre mot de passe :'
+        answer_one: "%{institution_name} est partenaire de ce service public en vertu d’un accord national, décliné localement. D’après les données communiquées, vous avez été identifié(e) pour participer à cette dynamique. Ce service est le fruit d’une co-construction avec des conseillers et des chefs d’entreprises, n’hésitez à nous partager votre retour d’expérience."
+        answer_two_html: "<p>Financé par le Ministère de l’Économie et le Ministère du Travail, ce service permet d’offrir un conseil humain et de proximité aux TPE et PME.</p><p>En fonction du sujet choisi, le chef d’entreprise est mis en relation avec le(s) bon(s) conseiller(s) au sein des administrations et des organismes publics ou parapublics sur son territoire.</p><p>Vous pouvez ainsi échanger sur un besoin d’entreprise avec des conseillers du service public travaillant dans d’autres structures. Le service compte plus de 30 partenaires !</p>"
+        description_html: vous êtes invité(e) à rejoindre le service public Conseillers-Entreprises, au sein de l’antenne %{antenne}.
         details_answer: Il permet aux chefs d’entreprises d’être facilement mis en relation avec le bon expert au sein des administrations, organismes publics et parapublics, et collectivités territoriales partenaires.
         details_answer_service: C’est un nouveau service public porté par le Ministère de l’Économie et le Ministère du Travail pour favoriser le conseil humain et de proximité des TPE & PME.
-        details_question: Qu’est ce que Place des Entreprises ?
+        details_question: Qu’est ce que le service Conseillers-Entreprises ?
         discover_partners_html: Découvrez %{link} et rejoignez la communauté en choisissant votre mot de passe en un clic !
         insitution_engagment: Au regard de ses missions, %{institution} est pleinement engagé(e) dans cette nouvelle dynamique collective.
         livestorm_permalink: lien permanant livestorm
         looking_forward: Au plaisir d’échanger à cette occasion !
         question_one: Pourquoi recevez-vous ce mail ?
-        question_two: Comment fonctionne le service public Place des Entreprises ?
-        subject: Vous êtes invité à rejoindre le service public Place des Entreprises, partenaire de %{institution}
+        question_two: Comment fonctionne Conseillers-Entreprises, un service de Service-Public.fr ?
+        subject: Invitation à rejoindre le service public Conseillers-Entreprises, partenaire de %{institution}
         support_contact_label: 'Si vous avez le moindre souci pour votre compte, contactez :'
         training_html: "<strong>Pour en savoir plus, inscrivez-vous à la prochaine démonstration du service</strong> : %{link}"
       reset_password_instructions:
-        account_but_never_connected: Vous disposez d’un accès à Place des Entreprises mais vous n’êtes pas encore connecté·e. Suivez le lien ci-dessous pour définir votre mot de passe et activer votre compte.
-        account_but_never_connected_html: "<p>Vous disposez d’un accès à Place des Entreprises mais vous n’êtes pas encore connecté·e. Cliquez sur le bouton ci-dessous pour définir votre mot de passe et activer votre compte.</p>"
+        account_but_never_connected_html: "<p>Vous disposez d’un compte sur le service public Conseillers-Entreprises, mais il n’est pas encore activé. Cliquez sur le bouton ci-dessous pour choisir votre mot de passe et activer votre compte.</p>"
         change_my_password: Changer de mot de passe
         choose_my_password: Choisir mon mot de passe
         ignore: Si vous n’êtes pas à l’origine de cette demande, vous pouvez ignorer cet e-mail. Votre mot de passe ne sera pas modifié.
-        once_connected: Une fois connecté, vous pourrez accéder à toutes les demandes qui vous ont été transmises ; vous pourrez aussi faire vous même des mises en relation.
+        once_connected: Une fois connecté(e), vous pourrez accéder aux besoins d’entreprises sollicitant votre expertise.
         someone_has_requested_a_link: Le %{date}, une demande de réinitalisation du mot de passe a été faite pour votre compte (%{email}). Suivez-le lien ci-dessous pour choisir un nouveau mot de passe.
         someone_has_requested_a_link_html: "<p>Le %{date}, une demande de réinitalisation du mot de passe a été faite pour votre compte (<code>%{email}</code>).</p><p>Cliquez sur le bouton ci-dessous pour choisir un nouveau mot de passe.</p>"
-        subject: 'Place des Entreprises : choisissez un mot de passe pour votre compte'
+        subject: 'Conseillers-Entreprises : choisissez un mot de passe pour votre compte'
     omniauth_callbacks:
       failure: 'Nous n’avons pas pu vous authentifier via %{kind} : ''%{reason}''.'
       success: Authentifié avec succès via %{kind}.
@@ -64,7 +63,7 @@ fr:
         change_own_password: Enregistrer le mot de passe
         new_password: Nouveau mot de passe
         password_reset: Choix du mot de passe
-        password_reset_description: 'Choisissez le nouveau mot de passe pour votre compte Place des Entreprises :'
+        password_reset_description: 'Choisissez le nouveau mot de passe pour votre compte Conseillers-Entreprises :'
       new:
         password_unknown_description: Si vous ne connaissez pas ou plus votre mot de passe, saisissez l’e-mail de votre compte pour recevoir les instructions de choix de mot de passe.
         send_me_reset_password_instructions: Envoyer les instructions
@@ -90,12 +89,12 @@ fr:
         email: Email professionnel nominatif
         email_help: 'Exemple : marie.dupont@mon-organisation.fr'
         how_to_sign_up_html: |
-          <h2>Qui sont les conseillers utilisant Place des Entreprises ?</h2>
-          <p>Les conseillers de Place des Entreprises sont des agents des administrations, des organismes publics et parapublics et des collectivités chargés d’accompagner les entreprises. Le service compte aujourd’hui plus de <b>1 000 conseillers par région</b> au sein de 40 partenaires différents !</p>
-          <p>En tant que conseiller, vous êtes référencé comme expert sur un ou plusieurs sujets avec un champ d’intervention précis. Le service vous permet ensuite de recevoir des besoins d’entreprises correspondant à votre expertise et d’échanger avec d’autres conseillers compétents pour aider une entreprise.</p>
-          <p>Ce service vise autant à aider les TPE & PME qu’à <b>faciliter le travail quotidien</b> des conseillers qui les accompagnent, dans une logique de <b>complémentarité et de décloisonnement des institutions</b>. Si vous êtes un acteur de la relation entreprise dans une structure porteuse de solutions, rejoignez-nous !</p>
-        meta_description: Les conseillers du service public Place des Entreprises sont des agents des administrations, des organismes publics et parapublics et des collectivités chargés d’accompagner les entreprises.
-        meta_title: Accès conseillers
+          <h2> Qui sont les conseillers utilisant Conseillers-Entreprises de Service-Public.fr ?</h2>
+          <p>Les conseillers du service Conseillers-Entreprises sont des agents des administrations, des organismes publics et parapublics chargés d’accompagner les entreprises. Le service compte aujourd’hui <b>plus de 10 000 conseillers</b> au sein de 30 partenaires différents !</p>
+          <p>En tant que conseiller(e), vous êtes référencé(e) comme expert(e) sur un ou plusieurs sujets avec un champ d’intervention précis. Le service vous permet ensuite de recevoir des besoins d’entreprises correspondant à votre expertise et d’échanger avec d’autres conseillers compétents pour aider une entreprise.</p>
+          <p>Ce service vise autant à aider les TPE & PME qu’à <b>faciliter le travail quotidien</b> des conseillers qui les accompagnent, dans une logique de <b>complémentarité et de décloisonnement des institutions</b>. Aidons ensemble les TPE & PME dans leurs projets, leurs difficultés et leurs transformations.</p>
+        meta_description: Les conseillers du service public Conseillers-Entreprises sont des agents des administrations, des organismes publics et parapublics et des collectivités chargés d’accompagner les entreprises.
+        meta_title: Accès conseiller
         password_help: 8 caractères minimum, avec au moins 3 types de caractères différents (majuscules, minuscules, chiffres ou caractères spéciaux)
       signed_in: ''
       signed_out: Déconnecté.

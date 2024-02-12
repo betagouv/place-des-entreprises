@@ -1,0 +1,25 @@
+<mj-section>
+  <mj-column>
+    <mj-image align='left' width="150px" src="<%= image_url 'Republique_Francaise_RVB.png' %>"></mj-image>
+  </mj-column>
+</mj-section>
+
+<mj-section>
+  <% if defined? institution_logo_name %>
+    <mj-column width="50%" vertical-align="middle">
+      <mj-raw>
+        <%= institution_image institution_logo_name %>
+      </mj-raw>
+    </mj-column>
+  <% end %>
+  <mj-column width="50%" vertical-align="middle">
+    <mj-text font-size='16px' line-height=1.5 padding=0 css-class="fr-header__service-title">
+      <span class="red"><%= t('app_name_subdomain').sp_titleize_url %></span><%= "." + t('app_name_domain').sp_titleize_url %>
+    </mj-text>
+    <mj-text line-height=1 font-size='13px'padding=0 css-class="fr-header__service-tagline">
+      <%= t('app_tagline') %>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+

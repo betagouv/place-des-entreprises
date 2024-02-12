@@ -17,9 +17,15 @@ class AboutController < PagesController
     end
     @ld_json = FaqGenerator.new(I18n.t('faq').values).to_ld_json
     @faq = FaqGenerator.new(I18n.t('faq').values).to_html
+    @temoignages = [
+      TemoignageGenerator.new('energie'),
+      TemoignageGenerator.new('handicap-entreprise')
+    ]
   end
 
   def equipe; end
+
+  def service_public_fr; end
 
   private
 

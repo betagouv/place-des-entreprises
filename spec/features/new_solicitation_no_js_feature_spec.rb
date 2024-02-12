@@ -7,7 +7,7 @@ require 'api_helper'
 
 describe 'New Solicitation' do
   let(:pde_subject) { create :subject }
-  let!(:landing) { create :landing, slug: 'accueil', title: 'Test Landing' }
+  let!(:landing) { create :landing, slug: 'accueil', title: 'Accueil' }
   let(:landing_theme) { create :landing_theme, title: "Test Landing Theme" }
   let!(:landing_subject) { create :landing_subject, landing_theme: landing_theme, subject: pde_subject, title: "Super sujet", description: "Description LS", requires_siret: true }
   let(:siret) { '41816609600069' }
@@ -23,7 +23,7 @@ describe 'New Solicitation' do
       context "with PK params in url" do
         before do
           visit '/?pk_campaign=FOO&pk_kwd=BAR'
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Email', with: 'user@example.com'
@@ -44,7 +44,7 @@ describe 'New Solicitation' do
       context "with MTM params in url" do
         before do
           visit '/?mtm_campaign=FOO&mtm_kwd=BAR'
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Téléphone', with: '0123456789'
@@ -66,7 +66,7 @@ describe 'New Solicitation' do
 
         before do
           visit "/?siret=#{siret}"
-          click_on 'Test Landing Theme'
+          click_on 'Test Landing Theme', match: :first
           click_on 'Super sujet'
           fill_in 'Prénom et nom', with: 'Hubertine Auclerc'
           fill_in 'Email', with: 'user@example.com'

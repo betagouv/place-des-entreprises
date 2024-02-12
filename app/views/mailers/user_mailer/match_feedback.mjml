@@ -1,0 +1,30 @@
+<%= content_for :card_content do %>
+  <p style='margin-bottom: 3px; margin-top: 28px'>
+    <%= t('.feedback_by_html', author: @author.full_name, antenne: @author.antenne, company: @feedback.need.company, date: I18n.l(@feedback.need.diagnosis.display_date)) %>
+  </p>
+  <%= simple_format(@feedback.description, class: 'feedback__content') %>
+  <% if @match.present? %>
+    <p style='display: contents; font-style: italic;'><%= t('.match_status_html', status: status_label(@match, :long)) %></p>
+  <% end %>
+<% end %>
+
+<mj-section padding-bottom='0px'>
+  <mj-column  padding-bottom='0px'>
+    <mj-text>
+      <p><%= t('mailers.hello')%></p>
+      <p><%= t('.new_feedback')%></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/need_card', need: @feedback.need, visited_at: false %>
+
+<mj-section>
+  <mj-column>
+    <mj-text>
+      <p><%= t('mailers.see_you_on_service_html', link_to_root: link_to(t('app_name'), root_url))%></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/support_contact_block', antenne: @user.antenne, support_contact_label: t('mailers.expert_mailer.notify_company_needs.support_contact_label') %>

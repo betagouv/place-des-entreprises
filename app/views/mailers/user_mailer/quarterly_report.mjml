@@ -1,0 +1,25 @@
+<mj-section>
+  <mj-column>
+    <mj-text>
+      <p><%= t('mailers.hello') %></p>
+
+      <p><%= t('.antenne_manager', antennes: @user.managed_antennes.pluck(:name).to_sentence, count: @user.managed_antennes.size) %></p>
+
+      <p><%= t('.quarterly_report_available_html') %></p>
+
+      <p><%= t('.dynamic_stats_html') %></p>
+    </mj-text>
+
+    <mj-button background-color="#000091" color="white" border-radius="0" font-weight="700">
+      <%= link_to t('.discover_dynamic_stats'), manager_stats_url, style: 'color: white; text-decoration: none' %>
+    </mj-button>
+
+    <mj-text>
+      <p><%= t('.at_your_disposal') %></p>
+      <p><%= t('mailers.thanks_for_your_trust') %></p>
+      <p><%= t('mailers.team') %></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/support_contact_block', antenne: @user.antenne, support_contact_label: t('.support_contact_label') %>

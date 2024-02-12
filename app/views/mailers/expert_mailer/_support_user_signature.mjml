@@ -1,0 +1,11 @@
+<mj-section padding-top="0">
+  <mj-column>
+    <mj-text color="#333">
+      <p style='margin:0; font-weight: 700'><%= support_user.full_name %></p>
+      <p style='margin: 0'><%= support_user.job %></p>
+      <p style='margin: 0'><%= t('.service_ce') %></p>
+      <p style='margin: 0'><%= t('.tutelles') %></p>
+      <p style='margin: 0'><%= support_user.phone_number %></p>
+    </mj-text>
+  </mj-column>
+</mj-section>

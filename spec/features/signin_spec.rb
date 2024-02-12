@@ -6,6 +6,7 @@ describe 'the signin process' do
   let!(:user) { create :user, email: 'user@example.com', password: 'yX*4Ubo_xPW!u' }
 
   before do
+    create_home_landing
     visit new_user_session_path
     within('#new_user') do
       fill_in 'Email', with: 'user@example.com'
@@ -15,7 +16,9 @@ describe 'the signin process' do
 
   context 'active user' do
     it do
-      click_on 'Accès conseillers', class: 'fr-btn'
+      within '.new_user' do
+        click_on 'Accès conseillers', class: 'fr-btn'
+      end
 
       expect(page.html).to include 'Demandes reçues'
     end

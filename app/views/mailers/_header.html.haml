@@ -1,12 +1,4 @@
-- if defined? institution_logo_name
-  = image_tag 'Republique_Francaise_RVB.png', width: '150px'
-
-  .logo-container
-    .logos
-      = institution_image institution_logo_name
-      = image_tag 'logo-PDE.png', alt: ''
-
-- else
-  .horizontal-logos
+.logo-container
+  .logos
     = image_tag 'Republique_Francaise_RVB.png', class: 'rf'
-    = image_tag 'logo-PDE.png', alt: '', class: 'pde'
+    = image_tag 'logo-ce.png', alt: '', class: 'pde'

@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require 'system_helper'
+require 'api_helper'
 
 describe 'diagnosis', :js do
   login_admin
@@ -16,7 +17,10 @@ describe 'diagnosis', :js do
                expert: create(:expert, communes: [need.facility.commune])
       end
 
-      before { create_list(:subject, 4) }
+      before do
+        stub_mjml_google_fonts
+        create_list(:subject, 4)
+      end
 
       it 'display all steps' do
         visit "/conseiller/analyses/#{diagnosis.id}"

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'api_helper'
 
 RSpec.describe Annuaire::UsersController do
   login_admin
@@ -65,7 +66,10 @@ RSpec.describe Annuaire::UsersController do
 
     subject(:request) { post :send_invitations, params: { institution_slug: institution.slug, users_ids: "#{user.id} #{old_user.id}" } }
 
-    before { request }
+    before do
+      stub_mjml_google_fonts
+      request
+    end
 
     it 'expect invitation sent to user' do
       expect(user.reload.invitation_sent_at).not_to be_nil

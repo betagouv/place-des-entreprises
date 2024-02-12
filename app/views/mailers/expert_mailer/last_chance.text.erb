@@ -1,0 +1,15 @@
+<%= t('mailers.hello_name', name: @expert.full_name) %>
+
+<%= ActionView::Base.full_sanitizer.sanitize(t('.company_solicitation_html', company: @need.company.name, date: I18n.l(@match.created_at, format: :sentence))) %>
+
+<%= t('.we_will_cancel_need') %>
+
+<%= t('.will_you_act') %>
+
+<%= t('mailers.see_diagnosis') %> : <%= need_url(@need) %>
+
+<%= t('.at_your_disposal') %>
+
+<%= t('mailers.sincerely') %>
+
+<%= @support_user.full_name %>

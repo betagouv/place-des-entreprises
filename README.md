@@ -1,14 +1,12 @@
-# <img src="doc/picto-PDE.svg" width="50"> Place des Entreprises
+# Conseillers-entreprises.service-public.fr
 
-_[Une startup d’État de beta.gouv](https://beta.gouv.fr/startups/place-des-entreprises)._
-
-Le service public Place des Entreprises permet à l’État, aux Régions volontaires et à l’ensemble des organismes publics et parapublics de développer leur rôle de conseil auprès des TPE & PME. [Comment ça marche ?](https://place-des-entreprises.beta.gouv.fr/comment_ca_marche)
+Le service public Conseillers-Entreprises permet à l’État, aux Régions volontaires et à l’ensemble des organismes publics et parapublics de développer leur rôle de conseil auprès des TPE & PME. [Comment ça marche ?](https://conseillers-entreprises.service-public.fr/comment_ca_marche)
 
 ## Documentation
 
-Place des Entreprises est une application web écrite en ruby et utilisant le framework Ruby on Rails, avec une base de données PostgreSQL. Le développement (code source, issues et pull requests) est organisé sur github. Place des Entreprises est déployé sur `place-des-entreprises.beta.gouv.fr` chez Scalingo, hébergé par Outscale.
+Conseillers-Entreprises est une application web écrite en ruby et utilisant le framework Ruby on Rails, avec une base de données PostgreSQL. Le développement (code source, issues et pull requests) est organisé sur github. Conseillers-Entreprises est déployé sur `www.conseillers-entreprises.service-public.fr` chez Scalingo, hébergé par Outscale.
 
-Le développement logiciel de Place des Entreprises est réalisé de façon ouverte et transparente. Le code source est publié sous [la licence libre AGPL](LICENSE.AGPL.txt).
+Le développement logiciel du service Conseillers-Entreprises est réalisé de façon ouverte et transparente. Le code source est publié sous [la licence libre AGPL](LICENSE.AGPL.txt).
 
 * [Setup (en)](doc/01-setup.md)
 * [Development (en)](doc/02-development.md)

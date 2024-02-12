@@ -15,7 +15,7 @@
 
 
 <%= t('.looking_forward') %>
-<%= ActionView::Base.full_sanitizer.sanitize(t('mailers.place_des_entreprises_team_html', link_to_root: link_to(t('app_name'), root_url))) %>
+<%= ActionView::Base.full_sanitizer.sanitize(t('mailers.team_html', url: root_url)) %>
 
 ---
 <%= t('.support_contact_label') %>

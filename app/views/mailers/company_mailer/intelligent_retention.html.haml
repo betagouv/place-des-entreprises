@@ -15,6 +15,6 @@
   .button
     = link_to @email_retention.second_subject_label, new_solicitation_url(Landing.accueil, Landing.accueil.landing_subjects.joins(:subject).find_by(subject: @email_retention.second_subject)) + campaign
 
-%p= t('.why_this_message')
+%p= t('mailers.company_mailer.why_this_message_html')
 
-%p= t('.explanation_html')
+%p= t('mailers.company_mailer.explanation_html')

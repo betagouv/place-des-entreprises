@@ -1,5 +1,7 @@
-.fr-container--fluid.section-grey.fr-py-2w.section-pde-partnership-mention
-  .fr-container.text-center
-    .iframe-pde-logo
-      = image_tag 'logo-PDE.svg', alt: t('logos.pde'), 'aria-hidden': 'true'
-    %p= t('application.pde_partnership_mention')
+.fr-container--fluid.section-grey.fr-py-4w.section-pde-partnership-mention
+  .ce-text-logo
+    %p.fr-header__service-title
+      %span.red>= t('app_name_subdomain').sp_titleize_url
+      = "." + t('app_name_domain').sp_titleize_url
+    %p.fr-header__service-tagline= t('app_tagline')
+  %p= t('application.pde_partnership_mention')

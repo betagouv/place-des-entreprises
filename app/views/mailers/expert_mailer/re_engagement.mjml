@@ -1,0 +1,23 @@
+<mj-section>
+  <mj-column>
+    <mj-text>
+      <p><%= t('mailers.hello') %></p>
+
+      <p><%= t('.you_received_need_html', company: @need.company.name, subject: @need.subject.label.downcase, url: need_url(@need)) %></p>
+
+      <p><%= t('.its_been_a_while') %></p>
+
+      <p style='margin:0'><%= t('.position_yourself_html') %></p>
+
+      <p><%= t('.if_you_need_a_demo_html') %></p>
+
+      <p><%= t('.ask_questions') %></p>
+
+      <p><%= t('.at_your_service') %></p>
+
+      <p><%= t('see_you_soon') %></p>
+
+    </mj-text>
+  </mj-column>
+</mj-section>
+<%= render 'mailers/expert_mailer/support_user_signature', support_user: @support_user %>

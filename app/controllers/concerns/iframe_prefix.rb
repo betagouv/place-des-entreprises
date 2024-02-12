@@ -7,6 +7,7 @@ module IframePrefix
     skip_forgery_protection if: -> { in_iframe? }
     after_action :allow_in_iframe, if: -> { in_iframe? }
     helper_method :query_params
+    skip_before_action :fetch_themes, if: -> { in_iframe? }
   end
 
   # Pour s'assurer que in_iframe? fonctionne en toutes circonstances

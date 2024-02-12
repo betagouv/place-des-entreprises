@@ -8,7 +8,7 @@ describe 'solicitation_form', :js, type: :feature do
 
   describe 'accessible solicitation form' do
     let(:pde_subject) { create :subject }
-    let!(:landing) { create :landing, slug: 'accueil', title: 'Test Landing' }
+    let!(:landing) { create :landing, slug: 'accueil', title: 'Accueil' }
     let(:landing_theme) { create :landing_theme, title: "Test Landing Theme" }
     let!(:landing_subject) do
       create :landing_subject, landing_theme: landing_theme, subject: pde_subject,

@@ -280,6 +280,7 @@ Rails.application.routes.draw do
     get :mentions_d_information
     get :mentions_legales
     get :accessibilite
+    get :service_public_fr, path: 'place-des-entreprises-devient-conseillers-entreprises'
   end
 
   scope :stats, module: :stats do
@@ -314,6 +315,9 @@ Rails.application.routes.draw do
   end
 
   # Redirections =====================================
+
+  # Permanently redirect all requests originally for place-des-entreprises towards conseillers-entreprises
+  match '/(*path)',via: [:get, :post], to: redirect { |path_params, request| "https://conseillers-entreprises.service-public.fr/#{path_params[:path]}" }, status: 301, constraints: { domain: 'place-des-entreprises.beta.gouv.fr' }
 
   get 'profile' => 'users#show'
 

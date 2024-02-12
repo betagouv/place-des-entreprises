@@ -1,13 +1,13 @@
 ---
 openapi: 3.0.1
 info:
-  title: API Place des Entreprises V1
-  description: "## Bienvenue sur la documentation de l’API de Place des Entreprises\n
+  title: API Conseillers-entreprises.service-public.fr V1
+  description: "## Bienvenue sur la documentation de l’API de Conseillers-entreprises.service-public.fr\n
     \       \nCette API permet à une organisation de proposer un formulaire de dépôt
-    de besoin d'entreprise connecté à Place des Entreprises sur son propre site internet.\n
+    de besoin d'entreprise connecté à Conseillers-entreprises.service-public.fr sur son propre site internet.\n
     \       \nConcrètement, cette API permet de :\n        \n- récupérer la liste
     des pages d'atterrisage, thèmes et sujets autorisés pour l'organisation concernée,\n
-    \       \n- d'envoyer à Place des Entreprises un besoin\n        \n### Limite
+    \       \n- d'envoyer à Conseillers-entreprises.service-public.fr un besoin\n        \n### Limite
     des requêtes\n        \nLe serveur accepte un maximum de 300 appels  par 5 minutes.\n
     \       "
   version: 1.0.0

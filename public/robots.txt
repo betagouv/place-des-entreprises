@@ -4,4 +4,4 @@
 User-agent: Googlebot
 Disallow: /e/
 
-Sitemap: https://place-des-entreprises.beta.gouv.fr/sitemap.xml
+Sitemap: https://conseillers-entreprises.service-public.fr/sitemap.xml

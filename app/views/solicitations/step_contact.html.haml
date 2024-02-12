@@ -61,15 +61,7 @@
     .fr-container--fluid.section-light-grey
       = render 'pages/how_it_works_short'
     - temoignage = TemoignageGenerator.new(@landing_subject.slug)
-    - if temoignage.published?
-      .fr-container.fr-my-8w.temoignage
-        %figure.fr-quote.fr-quote--column
-          %blockquote
-            %p.fr-text--lg= temoignage.content
-          %figcaption
-            %p.fr-quote__author= temoignage.author
-            .fr-quote__image
-              = image_tag(temoignage.picture_path, alt: t('temoignage.image_title', author: temoignage.author), class: 'fr-responsive-img')
+    = render 'about/temoignage', temoignage: temoignage
 
     - if @landing_subject.solicitable_institutions.with_logo.any?
       .section-light-grey.fr-pt-8w.fr-pb-5w

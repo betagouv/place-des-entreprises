@@ -4,20 +4,20 @@ fr:
     '1':
       answer: "<ol><li>Vous choisissez un sujet et déposez votre demande avec quelques éléments de contexte.</li><li>Nous identifions automatiquement le(s) conseiller(s) compétent(s) pour vous aider sur votre territoire, parmi tous les partenaires du service (administrations, collectivités, organismes publics et parapublics).</li><li>Le(s) conseiller(s) notifié(s) vous rappelle et vous accompagne en fonction de votre situation.</li></ol>"
       id: fonctionnement
-      question: Comment fonctionne le service public Place des Entreprises ?
+      question: Comment fonctionne le service public Conseillers-Entreprises ?
     '2':
-      answer: "<p>Les conseillers du service Place des Entreprises sont des agents des administrations, des collectivités, des organismes publics et parapublics chargés d’accompagner les entreprises.</p><p>Le service compte aujourd’hui plus de 1 000 conseillers par région, au sein de 40 partenaires différents. Pour des difficultés financières par exemple, en fonction de votre demande, vous pourrez être aidé par un conseiller de la Banque de France, de la Chambre de commerce et d’industrie, de la Chambre des métiers et de l’artisanat, de la DREETS, de votre intercommunalité et/ou de votre Région.</p>"
+      answer: "<p>Les conseillers du service Conseillers-Entreprises sont des agents des administrations, des organismes publics et parapublics chargés d’accompagner les entreprises. Le service compte aujourd’hui plus de 10 000 conseillers, au sein de 30 partenaires différents. Pour des difficultés financières par exemple, en fonction de votre demande, vous pourrez être aidé par un conseiller de la Banque de France, de l’Urssaf, de la Chambre de Commerce et d’Industrie ou de la Chambre des Métiers et de l’Artisanat.</p>"
       id: conseillers
-      question: Qui sont les conseillers de Place des Entreprises ?
+      question: Qui sont les conseillers de Conseillers-Entreprises ?
     '3':
       answer: "<p>En fonction de votre problématique, les conseillers peuvent vous proposer une aide financière, vous apporter un conseil personnalisé, un renseignement ou un accompagnement technique grâce à leur expertise.</p>"
       id: aides
-      question: Quelles sont les aides proposées par Place des Entreprises ?
+      question: Quelles sont les aides proposées par Conseillers-Entreprises ?
     '4':
-      answer: "<p>Le service de mise en relation avec le bon conseiller est totalement gratuit et financé par le Ministère de l’Économie et Ministère du Travail. </p><p> L’essentiel des accompagnements ensuite proposés par les conseillers sont gratuits, à l’exception des accompagnements techniques sur la durée, principalement réalisés par les chambres consulaires. Après échange avec un conseiller, vous êtes libre de poursuivre ou non un accompagnement. </p><p> Par exemple, des prestations techniques pour la création d’un site internet ou la réduction de votre consommation d’énergie sont payantes, mais à des prix attractifs grâce au soutien financier de l’État ou des collectivités territoriales, dans le cadre de politiques publiques prioritaires.</p>"
+      answer: "<p>Le service de mise en relation avec le bon conseiller est totalement gratuit et financé par le Ministère de l’Économie et le Ministère du Travail. </p><p> L’essentiel des accompagnements ensuite proposés par les conseillers sont gratuits, à l’exception des accompagnements techniques sur la durée, principalement réalisés par les chambres consulaires. Après échange avec un conseiller, vous êtes libre de poursuivre ou non un accompagnement. </p><p> Par exemple, des prestations techniques pour la création d’un site internet ou la réduction de votre consommation d’énergie sont payantes, mais à des prix attractifs grâce au soutien financier de l’État ou des collectivités territoriales, dans le cadre de politiques publiques prioritaires.</p>"
       id: gratuite
       question: Pourquoi ce service est-il gratuit ?
     '5':
-      answer: "<p>Après une phase d’expérimentation dans les Hauts-de-France, Place des Entreprises est progressivement ouvert dans toutes les régions françaises entre 2021 et 2022. Voici le calendrier d’ouverture :</p> <ul><li>Hauts-de-France : 1er mars 2019</li><li>Île-de-France : 1er décembre 2020</li><li>Martinique : 10 juin 2021</li><li>Bretagne : 29 septembre 2021</li><li>Provence Alpes Côtes d’Azur : 27 octobre 2021</li><li>Pays de la Loire : 23 novembre 2021</li><li>Grand Est : 15 décembre 2021</li><li>Nouvelle Aquitaine : 25 janvier 2022</li><li>Normandie : 28 février 2022</li><li>Auvergne Rhône-Alpes : 24 mars 2022</li><li>Occitanie : 22 avril 2022</li><li>Centre Val de Loire : 25 mai 2022</li><li>Bourgogne Franche-Comté : 15 juin 2022</li><li>Corse et Outre Mer : 28 septembre 2022</li></ul>"
+      answer: "<p>Ce service public a été conçu en 2019 dans la région des Hauts-de-France, sous la forme d’une startup d’État, « Place des Entreprises ». Cette méthode a permis de construire le service avec ses utilisateurs, des chefs d’entreprises et des conseillers de diverses administrations.</p><p>Après une expérimentation réussie, il a été déployé progressivement région par région pour devenir un service public national en septembre 2022. Il change de nom en janvier 2024 pour se rapprocher de Service-Public.fr.</p>"
       id: calendrier
-      question: Quand le service Place des Entreprises sera-t-il ouvert dans ma région ?
+      question: Depuis quand existe ce service public ?

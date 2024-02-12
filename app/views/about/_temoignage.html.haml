@@ -1,0 +1,9 @@
+- if temoignage.published?
+  .fr-container.fr-my-8w.temoignage
+    %figure.fr-quote.fr-quote--column
+      %blockquote
+        %p.fr-text--lg= temoignage.content
+      %figcaption
+        %p.fr-quote__author= temoignage.author
+        .fr-quote__image
+          = image_tag(temoignage.picture_path, class: 'fr-responsive-img', alt: t('.temoignage_alt', author: temoignage.author))

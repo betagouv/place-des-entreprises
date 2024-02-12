@@ -56,7 +56,7 @@ class CompanyMailer < ApplicationMailer
   def abandoned_need(need)
     @need = need
 
-    mail(to: @need.diagnosis.visitee.email, subject: t('mailers.company_mailer.abandoned_need.subject'))
+    mail(to: @need.diagnosis.visitee.email, subject: t('mailers.company_mailer.abandoned_need.subject', subject: @need.solicitation.landing_subject.title))
   end
 
   def solicitation_relaunch_company(solicitation)

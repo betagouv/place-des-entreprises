@@ -2,10 +2,14 @@
 
 require 'rails_helper'
 require 'mailers/shared_examples_for_an_email'
+require 'api_helper'
 
 describe ExpertMailer do
+
+  before { stub_mjml_google_fonts }
+
   describe '#notify_company_needs' do
-    subject(:mail) { described_class.notify_company_needs(expert, need).deliver_now }
+    subject(:mail) { described_class.with(expert: expert, need: need).notify_company_needs.deliver_now }
 
     let(:expert) { create :expert }
     let(:user) { create :user }
@@ -35,7 +39,7 @@ describe ExpertMailer do
 
   describe '#remind_involvement' do
     subject(:mail) do
-      described_class.remind_involvement(expert).deliver_now
+      described_class.with(expert: expert).remind_involvement.deliver_now
     end
 
     let(:expert) { create :expert }
@@ -44,8 +48,18 @@ describe ExpertMailer do
       create :match, expert: expert, created_at: 5.days.ago, sent_at: 5.days.ago
     end
 
-    it_behaves_like 'an email'
+    describe 'when the recipient is active' do
+      it_behaves_like 'an email'
 
-    it { expect(mail.header[:from].value).to eq ExpertMailer::SENDER }
+      it { expect(mail.header[:from].value).to eq ExpertMailer::SENDER }
+    end
+
+    describe 'when the recipient is deleted' do
+      before { expert.soft_delete }
+
+      let(:mail) { subject }
+
+      it { expect(mail).to be_nil }
+    end
   end
 end

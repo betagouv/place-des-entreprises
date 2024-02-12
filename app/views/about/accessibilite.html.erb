@@ -25,10 +25,10 @@
 
         <h2 class="fr-mt-3w">Déclaration d’accessibilité</h2>
 
-        <p>Place des Entreprises s’engage à rendre son site internet accessible conformément à l’article 47 de la loi n° 2005-102 du 11 février 2005.</p>
+        <p>Le service Conseillers-Entreprises s’engage à rendre son site internet accessible conformément à l’article 47 de la loi n° 2005-102 du 11 février 2005.</p>
 
         <h3>État de conformité</h3>
-        <p>Le site <a href='https://place-des-entreprises.beta.gouv.fr'>place-des-entreprises.beta.gouv.fr</a> est partiellement conforme avec le référentiel général d’amélioration de l’accessibilité (RGAA), version 4.1 en raison des non-conformités et des dérogations énumérées ci-dessous.</p>
+        <p>Le site <a href='https://conseillers-entreprises.service-public.fr'>conseillers-entreprises.service-public.fr</a> est partiellement conforme avec le référentiel général d’amélioration de l’accessibilité (RGAA), version 4.1 en raison des non-conformités et des dérogations énumérées ci-dessous.</p>
 
         <h3>Résultats des tests</h3>
 
@@ -60,7 +60,7 @@
         <h3 class="fr-mt-3w">Établissement de cette déclaration d’accessibilité</h3>
         <p>Cette déclaration a été établie le 24/08/2022 et mise à jour le 21/12/2022.</p>
 
-        <h4>Technologies utilisées au sein du site Place des Entreprises</h4>
+        <h4>Technologies utilisées au sein du site Conseillers-entreprises.service-public.fr</h4>
         <ul>
           <li>Ruby on Rails</li>
           <li>HTML 5</li>
@@ -91,15 +91,15 @@
         <h4 class="fr-mt-2w">Pages du site ayant fait l’objet de la vérification de conformité</h4>
 
         <% pages = [
-          {title: 'Page d’accueil', url: 'https://place-des-entreprises.beta.gouv.fr/'},
-          {title: 'Page mentions d’information', url: 'https://place-des-entreprises.beta.gouv.fr/mentions_d_information'},
-          {title: 'Page mentions légales', url: 'https://place-des-entreprises.beta.gouv.fr/mentions_legales'},
-          {title: 'Page accessibilité', url: 'https://place-des-entreprises.beta.gouv.fr/accessibilite'},
-          {title: 'Connexion conseiller', url: 'https://place-des-entreprises.beta.gouv.fr/mon_compte/sign_in'},
-          {title: 'Page comment ça marche', url: 'https://place-des-entreprises.beta.gouv.fr/comment_ca_marche'},
-          {title: 'Page statistiques', url: 'https://place-des-entreprises.beta.gouv.fr/stats'},
-          {title: 'Page thématique', url: 'https://place-des-entreprises.beta.gouv.fr/aide-entreprise/accueil/theme/environnement-transition-ecologique'},
-          {title: 'Pages dépôt de sollicitation - étape 1', url: 'https://place-des-entreprises.beta.gouv.fr/aide-entreprise/accueil/demande/demarche-ecologie'},
+          {title: 'Page d’accueil', url: 'https://conseillers-entreprises.service-public.fr/'},
+          {title: 'Page mentions d’information', url: 'https://conseillers-entreprises.service-public.fr/mentions_d_information'},
+          {title: 'Page mentions légales', url: 'https://conseillers-entreprises.service-public.fr/mentions_legales'},
+          {title: 'Page accessibilité', url: 'https://conseillers-entreprises.service-public.fr/accessibilite'},
+          {title: 'Connexion conseiller', url: 'https://conseillers-entreprises.service-public.fr/mon_compte/sign_in'},
+          {title: 'Page comment ça marche', url: 'https://conseillers-entreprises.service-public.fr/comment_ca_marche'},
+          {title: 'Page statistiques', url: 'https://conseillers-entreprises.service-public.fr/stats'},
+          {title: 'Page thématique', url: 'https://conseillers-entreprises.service-public.fr/aide-entreprise/accueil/theme/environnement-transition-ecologique'},
+          {title: 'Pages dépôt de sollicitation - étape 1', url: 'https://conseillers-entreprises.service-public.fr/aide-entreprise/accueil/demande/demarche-ecologie'},
         ] %>
         <ol>
           <% pages.each do |page| %>
@@ -109,10 +109,10 @@
         </ol>
 
         <h3 class="fr-mt-3w">Droit à la compensation</h3>
-        <p>Si vous n’arrivez pas à accéder à un contenu ou à une fonctionnalité, vous pouvez obtenir une version accessible des documents ou des informations qui y seraient contenues en envoyant un courriel à <a href="mailto:contact@place-des-entreprises.beta.gouv.fr?subject=<%= ERB::Util.url_encode("Droit à la compensation") %>">contact@place-des-entreprises.beta.gouv.fr</a> en indiquant le nom du document concerné et/ou les informations que vous souhaiteriez obtenir. Les informations demandées vous seront transmises dans les meilleurs délais.</p>
+        <p>Si vous n’arrivez pas à accéder à un contenu ou à une fonctionnalité, vous pouvez obtenir une version accessible des documents ou des informations qui y seraient contenues en envoyant un courriel à <a href="mailto:<%= ENV['APPLICATION_EMAIL']%>?subject=<%= ERB::Util.url_encode("Droit à la compensation") %>"><%= ENV['APPLICATION_EMAIL']%></a> en indiquant le nom du document concerné et/ou les informations que vous souhaiteriez obtenir. Les informations demandées vous seront transmises dans les meilleurs délais.</p>
 
         <h3>Amélioration et contact</h3>
-        <p>Vous pouvez nous aider à améliorer l’accessibilité du site en nous signalant les problèmes éventuels que vous rencontrez. Pour ce faire, envoyez-nous un courriel à <a href="mailto:contact@place-des-entreprises.beta.gouv.fr?subject=<%= ERB::Util.url_encode("Amélioration de l’accessibilité") %>">contact@place-des-entreprises.beta.gouv.fr</a>.</p>
+        <p>Vous pouvez nous aider à améliorer l’accessibilité du site en nous signalant les problèmes éventuels que vous rencontrez. Pour ce faire, envoyez-nous un courriel à <a href="mailto:<%= ENV['APPLICATION_EMAIL']%>?subject=<%= ERB::Util.url_encode("Amélioration de l’accessibilité") %>"><%= ENV['APPLICATION_EMAIL']%></a>.</p>
 
         <h3>Voies de recours</h3>
         <p>Cette procédure est à utiliser dans le cas suivant : vous avez signalé au responsable du site internet un défaut d’accessibilité qui vous empêche d’accéder à un contenu ou à un des services du portail et vous n’avez pas obtenu de réponse satisfaisante.</p>

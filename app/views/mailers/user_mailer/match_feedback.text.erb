@@ -1,10 +1,11 @@
 <%= t('mailers.hello') %>
 
-<%= ActionView::Base.full_sanitizer.sanitize(t('.new_comment_html', author: @author.full_name, antenne: @author.antenne, company: @feedback.need.company, date: I18n.l(@feedback.need.diagnosis.display_date))) %>
+<%= t('.new_feedback') %>
 
 <%= Subject.model_name.human %> : <%= @feedback.need.subject %>
 
-<%= Feedback.model_name.human %> :
+<%= ActionView::Base.full_sanitizer.sanitize(t('.feedback_by_html', author: @author.full_name, antenne: @author.antenne, company: @feedback.need.company, date: I18n.l(@feedback.need.diagnosis.display_date))) %>
+
 <%= @feedback.description %>
 
 <% if @match.present? %>
@@ -13,7 +14,4 @@
 
 <%= t('mailers.see_diagnosis') %> : <%= need_url(@feedback.need) %>
 
-<%= t('mailers.see_you_on_place_des_entreprises_html', link_to_root: root_url) %>
-
----
-<%= render 'mailers/footer' %>
+<%= t('mailers.see_you_on_service_html', link_to_root: root_url) %>

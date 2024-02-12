@@ -1,4 +1,6 @@
 class CustomDeviseMailer < Devise::Mailer
+  layout 'expert_mailers'
+
   def headers_for(action, opts)
     if action == :invitation_instructions
       super.merge!({
@@ -12,5 +14,15 @@ class CustomDeviseMailer < Devise::Mailer
         reply_to: ApplicationMailer::REPLY_TO
       })
     end
+  end
+
+  def invitation_instructions(record, token, opts = {})
+    @institution_logo_name = record.institution.logo&.filename
+    super
+  end
+
+  def reset_password_instructions(record, token, opts = {})
+    @institution_logo_name = record.institution.logo&.filename
+    super
   end
 end

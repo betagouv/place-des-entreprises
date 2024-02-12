@@ -1,0 +1,23 @@
+<mj-section>
+  <mj-column>
+    <mj-text>
+      <p><%= t('mailers.hello')%></p>
+      <p><%= t('.company_needs_you_html', subject: @need.subject)%></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+
+<%= render 'mailers/expert_mailer/need_card', need: @need, visited_at: false %>
+
+<mj-section>
+  <mj-column>
+    <mj-text>
+      <% if @solicitation.present? && @solicitation.landing&.partner_url.present? %>
+        <p><%= t('.via_partner_html', url: @solicitation.landing.partner_url) %></p>
+      <% end %>
+      <p><%= t('mailers.thanks_for_your_trust') %></p>
+      <p><%= t('mailers.see_you_on_service_html', link_to_root: link_to(t('app_name'), root_url)) %></p>
+    </mj-text>
+  </mj-column>
+</mj-section>
+<%= render 'mailers/expert_mailer/support_contact_block', antenne: @expert.antenne, support_contact_label: t('.support_contact_label') %>
