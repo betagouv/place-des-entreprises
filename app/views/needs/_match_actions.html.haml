@@ -8,6 +8,7 @@
             %span.ri-phone-fill.fr-mr-2v{ 'aria-hidden': 'true' }
             = t('.take_care')
           = f.button :submit, name: :status, value: :not_for_me, class: 'fr-btn fr-btn--secondary btn-red', id: 'match_submit_not_for_me' do
+            %span.ri-close-line.fr-mr-2v{ 'aria-hidden': 'true' }
             = t('.not_for_me')
 
   - elsif match.status_taking_care?

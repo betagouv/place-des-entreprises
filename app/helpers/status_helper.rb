@@ -17,8 +17,8 @@ module StatusHelper
     not_for_me: %w[ri-close-line],
     taking_care: %w[ri-loader-2-line],
     done: %w[ri-check-line],
-    done_no_help: %w[icon ri-check-line],
-    done_not_reachable: %w[icon ri-check-line]
+    done_no_help: %w[ri-check-line],
+    done_not_reachable: %w[ri-check-line]
   }
 
   EXPERTS_ICONS = {
