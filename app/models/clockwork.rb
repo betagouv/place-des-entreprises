@@ -52,5 +52,8 @@ module Clockwork
     every(1.day, 'reminders_registers', :at => ['01:00', '13:00'], tz: 'UTC') do
       Admin::CreateRemindersRegistersJob.perform_later
     end
+    every(1.day, 'backup_db', at: ('2:10')) do
+      `rake backup_db`
+    end
   end
 end

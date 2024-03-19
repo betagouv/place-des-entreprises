@@ -16,7 +16,7 @@ namespace :import_dump do
     env = `scalingo -a reso-production env`.lines
     pg_url = env.find{ |i| i[/SCALINGO_POSTGRESQL_URL=/] }
     pw = pg_url[/.*:(.*)@/,1]
-    dbname = 'reso_produc_4107'
+    dbname = pg_url[/\/\/(.*):.*@/,1]
 
     sh "PGPASSWORD=#{pw} pg_dump --no-owner --no-acl #{dbname} > tmp/export.pgsql  -h localhost -p 10000 -U #{dbname}"
 
