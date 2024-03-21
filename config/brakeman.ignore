@@ -3,11 +3,44 @@
     {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 2,
+      "fingerprint": "1839e26d1c37970b580b6cf6c0947b8e2f12f8f5ced90abdbd02496971dad3ac",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/conseiller/veille/_need.haml",
+      "line": 32,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "build_reminders_card_footer(:quo_match, (Unresolved Model).new)",
+      "render_path": [
+        {
+          "type": "template",
+          "name": "conseiller/veille/index",
+          "line": 12,
+          "file": "app/views/conseiller/veille/index.html.haml",
+          "rendered": {
+            "name": "conseiller/veille/_need",
+            "file": "app/views/conseiller/veille/_need.haml"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "conseiller/veille/_need"
+      },
+      "user_input": "(Unresolved Model).new",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
       "fingerprint": "3f8a8d49ee107fbb6b9a9b7d00218316003d2fcc965e798c06845071ed1186c6",
       "check_name": "CrossSiteScripting",
       "message": "Unescaped model attribute",
       "file": "app/views/reminders/_need.haml",
-      "line": 30,
+      "line": 32,
       "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
       "code": "build_reminders_card_footer(action, (Unresolved Model).new)",
       "render_path": [
@@ -40,7 +73,7 @@
       "check_name": "SQL",
       "message": "Possible SQL injection",
       "file": "app/models/antenne.rb",
-      "line": 108,
+      "line": 122,
       "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
       "code": "joins(:institution).where(\"(antennes.name, institutions.name) IN (#{([\"(?)\"] * antennes_and_institutions_names.size).join(\", \")})\", *antennes_and_institutions_names)",
       "render_path": null,
@@ -63,7 +96,7 @@
       "check_name": "SQL",
       "message": "Possible SQL injection",
       "file": "app/services/stats/base_stats.rb",
-      "line": 135,
+      "line": 142,
       "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
       "code": "query.group(\"DATE_TRUNC('month', #{query.model.name.pluralize}.created_at)\")",
       "render_path": null,
@@ -80,6 +113,6 @@
       "note": ""
     }
   ],
-  "updated": "2023-10-17 17:16:54 +0200",
-  "brakeman_version": "6.0.1"
+  "updated": "2024-03-21 16:36:54 +0100",
+  "brakeman_version": "6.1.2"
 }

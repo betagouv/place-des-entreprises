@@ -1,0 +1,14 @@
+- meta title: t('.title')
+- content_for :header, render('header', title: t('.title'))
+- content_for :menu, render('menu', collections_count: @collections_by_veille_count)
+
+-# = render 'filters', possible_territories_options: @possible_territories_options
+- if @needs.to_a.size == 0
+  .fr-container.text-center.fr-mt-18v
+    .fr-h3= t('.no_results')
+- else
+  = paginate @needs
+
+  = render partial: 'need', collection: @needs
+
+  = paginate @needs

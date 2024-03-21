@@ -56,6 +56,9 @@
               = active_link_to inputs_reminders_experts_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active', data: { turbo: false } do
                 %span.ri-award-fill.fr-mr-1w{ 'aria-hidden': 'true' }
                 = t('reminders.experts.navbar.title')
+              = active_link_to quo_matches_conseiller_veille_index_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active', data: { turbo: false } do
+                %span.ri-radar-line.fr-mr-1w{ 'aria-hidden': 'true' }
+                = t('conseiller.veille.index.title')
           %ul.fr-nav__list
             = active_link_to tutoriels_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active' do
               %span.ri-tools-line.fr-mr-1w{ 'aria-hidden': 'true' }

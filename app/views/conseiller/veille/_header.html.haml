@@ -1,0 +1,5 @@
+%h1.fr-h2
+  = title
+
+- current_page = t(controller.action_name, scope: [:conseiller, :veille, :titles], default: title)
+= render 'shared/breadcrumb', pages: [{ title: title, path: needs_path }], current_page: current_page
