@@ -5,6 +5,8 @@
 # pipeline. This is to preserve this extension, as is it referenced in a call
 # to asset_path in the _favicon.html.erb partial.
 
-Rails.application.config.assets.configure do |env|
-  env.register_mime_type('application/manifest+json', extensions: ['.webmanifest', '.webmanifest.erb'])
-end
+# # Commented out : https://github.com/RealFaviconGenerator/realfavicongenerator/issues/497
+
+# Rails.application.config.assets.configure do |env|
+#   env.register_mime_type('application/manifest+json', extensions: ['.webmanifest', '.webmanifest.erb'])
+# end
