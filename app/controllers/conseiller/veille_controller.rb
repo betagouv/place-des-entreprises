@@ -25,18 +25,7 @@ class Conseiller::VeilleController < ApplicationController
   private
 
   def retrieve_quo_matches_needs
-    range = Range.new(45.days.ago, 20.days.ago)
-    # On ne veut pas les "besoins en PQ" (relance Expert ou besoin)
-    relance_experts = Expert.in_reminders_registers
-    quo_matches ||= Match.sent
-      .status_quo
-      .where(sent_at: range)
-      .where.not(expert: relance_experts)
-    @quo_matches_needs ||= Need.diagnosis_completed.joins(:matches)
-      .where(matches: quo_matches)
-      .where.not(status: :quo) # besoins dans panier relance
-      .without_action(:quo_match)
-      .distinct
+    @quo_matches_needs ||= Need.with_filtered_matches_quo
   end
 
   def retrieve_followed_needs

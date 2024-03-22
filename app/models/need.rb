@@ -8,6 +8,7 @@
 #  matches_count           :integer
 #  retention_sent_at       :datetime
 #  satisfaction_email_sent :boolean          default(FALSE), not null
+#  starred_at              :datetime
 #  status                  :enum             default("diagnosis_not_complete"), not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
@@ -207,6 +208,21 @@ class Need < ApplicationRecord
       .where.not(matches: Match.unscoped.where.not(status: status))
     # put it in a subquery to avoid duplicate rows, or requiring the join if this scope is composed with others
     where(id: needs_with_matches)
+  end
+
+  # Veille : besoins hors relances avec des MER en attente
+  scope :with_filtered_matches_quo, -> do
+    range = Range.new(REMINDERS_DAYS[:abandon].days.ago, REMINDERS_DAYS[:last_chance].days.ago)
+    relance_experts = Expert.in_reminders_registers
+    quo_matches = Match.sent
+      .status_quo
+      .where(sent_at: range)
+      .where.not(expert: relance_experts)
+    quo_matches_needs = Need.diagnosis_completed.joins(:matches)
+      .where(matches: quo_matches)
+      .where.not(status: :quo) # besoins dans panier relance
+      .without_action(:quo_match)
+    where(id: quo_matches_needs)
   end
 
   # Utilisé pour les mails de relance
