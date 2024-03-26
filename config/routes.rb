@@ -106,7 +106,7 @@ Rails.application.routes.draw do
     resources :veille, only: %i[index], path: 'veille' do
       collection do
         get :quo_matches, path: 'mer-en-attente'
-        get :followed_needs, path: 'besoins-suivis'
+        get :starred_needs, path: 'besoins-suivis'
       end
     end
   end

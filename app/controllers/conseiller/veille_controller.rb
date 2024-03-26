@@ -16,8 +16,8 @@ class Conseiller::VeilleController < ApplicationController
     render :index
   end
 
-  def followed_needs
-    @needs = retrieve_followed_needs
+  def starred_needs
+    @needs = retrieve_starred_needs
       .page(params[:page])
     render :index
   end
@@ -28,15 +28,15 @@ class Conseiller::VeilleController < ApplicationController
     @quo_matches_needs ||= Need.with_filtered_matches_quo
   end
 
-  def retrieve_followed_needs
-    @followed_needs ||= Need.order(:created_at).limit(3)
+  def retrieve_starred_needs
+    @starred_needs ||= Need.order(:created_at).limit(3)
   end
 
   def collections_counts
-    @collections_by_veille_count = Rails.cache.fetch(['veille', retrieve_quo_matches_needs.size, retrieve_followed_needs.size]) do
+    @collections_by_veille_count = Rails.cache.fetch(['veille', retrieve_quo_matches_needs.size, retrieve_starred_needs.size]) do
       {
         quo_matches: retrieve_quo_matches_needs.size,
-        followed_needs: retrieve_followed_needs.size
+        starred_needs: retrieve_starred_needs.size
       }
     end
   end

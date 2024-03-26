@@ -307,10 +307,10 @@ fr:
         no_results: Aucun résultat
         title: Veille
       instructions:
-        followed_needs: Besoins marqués comme suivi lors de l'analyse
+        starred_needs: Besoins marqués comme suivi lors de l'analyse
         quo_matches: MER en attente de réponse depuis + de 9 jours et - de 45 jours hors PQ
       titles:
-        followed_needs: Besoins suivis
+        starred_needs: Besoins suivis
         quo_matches: MER en attente
   contacts:
     needs_historic:
