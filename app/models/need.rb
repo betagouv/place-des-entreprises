@@ -225,6 +225,11 @@ class Need < ApplicationRecord
     where(id: quo_matches_needs)
   end
 
+  scope :starred, -> do
+    where.not(starred_at: nil)
+      .without_action(:starred_need)
+  end
+
   # Utilisé pour les mails de relance
   scope :active, -> do
     with_matches_only_in_status([:quo, :taking_care, :not_for_me])
@@ -354,6 +359,10 @@ class Need < ApplicationRecord
 
   def is_abandoned?
     has_action?('abandon')
+  end
+
+  def starred?
+    !starred_at.nil?
   end
 
   def quo_experts

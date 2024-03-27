@@ -13,12 +13,18 @@ class Conseiller::VeilleController < ApplicationController
       .includes(:subject, :feedbacks, :company, :solicitation, :badges, reminder_feedbacks: { user: :antenne }, matches: { expert: :antenne })
       .order(created_at: :asc)
       .page(params[:page])
+    @action = :quo_match
+
     render :index
   end
 
   def starred_needs
     @needs = retrieve_starred_needs
+      .includes(:subject, :feedbacks, :company, :solicitation, :badges, reminder_feedbacks: { user: :antenne }, matches: { expert: :antenne })
+      .order(created_at: :asc)
       .page(params[:page])
+    @action = :starred_need
+
     render :index
   end
 
@@ -29,7 +35,7 @@ class Conseiller::VeilleController < ApplicationController
   end
 
   def retrieve_starred_needs
-    @starred_needs ||= Need.order(:created_at).limit(3)
+    @starred_needs ||= Need.starred
   end
 
   def collections_counts

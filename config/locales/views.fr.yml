@@ -307,11 +307,11 @@ fr:
         no_results: Aucun résultat
         title: Veille
       instructions:
-        starred_needs: Besoins marqués comme suivi lors de l'analyse
         quo_matches: MER en attente de réponse depuis + de 9 jours et - de 45 jours hors PQ
+        starred_needs: Besoins marqués comme suivi lors de l'analyse
       titles:
-        starred_needs: Besoins suivis
         quo_matches: MER en attente
+        starred_needs: Besoins suivis
   contacts:
     needs_historic:
       title_html: Liste des besoins pour %{name} <span class="fr-text--lg">(%{email})</span>
@@ -536,6 +536,9 @@ fr:
       transmitted_by: Demande transmise par
       warning_comments: Attention ! Cette discussion n’est pas visible par l’entreprise.
       workforce: 'Effectifs de l’établissement : %{range}'
+    star_btn:
+      need_starred: Besoin suivi
+      star_need: Suivre le besoin
   newsletters:
     create:
       error_newsletter_subscription: Une erreur s’est produite, merci de réessayer.
@@ -667,6 +670,7 @@ fr:
           poke: Experts relancés
           quo_match: Traiter
           refused: Traiter
+          starred_need: Traiter
         name:
           last_chance: Risque d’abandon
           poke: Sans réponse

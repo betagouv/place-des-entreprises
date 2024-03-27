@@ -24,7 +24,7 @@ class RemindersAction < ApplicationRecord
     abandon: 4,       # J+45
     refused: 5,       # Sortir du panier 'refusé'
     quo_match: 6,     # Sortir de la veille MER en attente
-    followed_need: 7  # Sortie de la veille Besoin suivi
+    starred_need: 7 # Sortie de la veille Besoin suivi
   }, _prefix: true
 
   ## Associations

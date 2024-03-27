@@ -618,6 +618,17 @@ RSpec.describe Need do
         expect(described_class.with_filtered_matches_quo).to contain_exactly(need_with_quo_match)
       end
     end
+
+    describe 'starred' do
+      let!(:unstar_need) { create :need, starred_at: nil }
+      let!(:starred_need) { create :need, starred_at: Time.zone.now }
+      let!(:starred_need_seen) { create :need, starred_at: Time.zone.now }
+      let!(:seen_action) { create :reminders_action, category: :starred_need, need: starred_need_seen }
+
+      it 'filters only correct need' do
+        expect(described_class.starred).to contain_exactly(starred_need)
+      end
+    end
   end
 
   describe 'search' do

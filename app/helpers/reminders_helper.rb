@@ -36,7 +36,7 @@ module RemindersHelper
   end
 
   def with_action
-    %i[poke last_chance refused quo_match]
+    %i[poke last_chance refused quo_match starred_need]
   end
 
   def action_button(action, need)

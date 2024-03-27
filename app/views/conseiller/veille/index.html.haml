@@ -9,6 +9,6 @@
 - else
   = paginate @needs
 
-  = render partial: 'need', collection: @needs
+  = render partial: 'need', collection: @needs, locals: { action: @action }
 
   = paginate @needs

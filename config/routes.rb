@@ -160,6 +160,7 @@ Rails.application.routes.draw do
     end
     member do
       post :add_match
+      post :star
     end
   end
 

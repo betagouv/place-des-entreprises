@@ -29,4 +29,4 @@
             = render partial: 'feedbacks/feedback', collection: need.reminder_feedbacks, cached: true
           = render 'feedbacks/form', feedback: need.reminder_feedbacks.new
     .card__footer
-      = raw build_reminders_card_footer(:quo_match, need)
+      = raw build_reminders_card_footer(action, need)
