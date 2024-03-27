@@ -1,0 +1,5 @@
+= turbo_frame_tag need do
+  - if need.starred?
+    %p.fr-tag.fr-icon-star-fill.fr-tag--icon-left= t('.need_starred')
+  - else
+    = button_to t('.star_need'), star_need_path(need), { method: :post, class: 'fr-btn fr-btn--secondary fr-btn--icon-left fr-icon-star-line' }

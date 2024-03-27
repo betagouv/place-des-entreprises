@@ -601,6 +601,36 @@ RSpec.describe Need do
     end
   end
 
+  describe 'veille' do
+    describe 'with_filtered_matches_quo' do
+      let!(:need_quo_recent) { create :need, status: :done, matches: [ create(:match, status: :done), create(:match, status: :quo)] }
+      let!(:need_quo_expired) { create :need, status: :done, matches: [ create(:match, status: :done, sent_at: 46.days.ago), create(:match, status: :quo, sent_at: 46.days.ago)] }
+      let!(:need_not_sent) { create :need_with_unsent_matches }
+
+      let!(:expert_relance) { create :expert_with_users, :with_reminders_register, job: 'expert_with_one_quo_match_1' }
+      let!(:need_in_relance_expert) { create :need, status: :quo, matches: [ create(:match, status: :quo, sent_at: 30.days.ago), create(:match, status: :quo, sent_at: 30.days.ago, expert: expert_relance)] }
+      let!(:need_in_relance_besoin) { create :need, status: :quo, matches: [ create(:match, status: :quo, sent_at: 30.days.ago), create(:match, status: :quo, sent_at: 30.days.ago)] }
+      let!(:need_with_quo_match) { create :need, status: :done, matches: [ create(:match, status: :quo, sent_at: 30.days.ago), create(:match, status: :done, sent_at: 30.days.ago)] }
+      let!(:need_with_quo_match_seen) { create :need, status: :done, matches: [ create(:match, status: :quo, sent_at: 30.days.ago), create(:match, status: :done, sent_at: 30.days.ago)] }
+      let!(:seen_action) { create :reminders_action, category: :quo_match, need: need_with_quo_match_seen }
+
+      it 'filters only correct need' do
+        expect(described_class.with_filtered_matches_quo).to contain_exactly(need_with_quo_match)
+      end
+    end
+
+    describe 'starred' do
+      let!(:unstar_need) { create :need, starred_at: nil }
+      let!(:starred_need) { create :need, starred_at: Time.zone.now }
+      let!(:starred_need_seen) { create :need, starred_at: Time.zone.now }
+      let!(:seen_action) { create :reminders_action, category: :starred_need, need: starred_need_seen }
+
+      it 'filters only correct need' do
+        expect(described_class.starred).to contain_exactly(starred_need)
+      end
+    end
+  end
+
   describe 'search' do
     let(:subject1) { create :subject, label: "sujet un" }
     let(:subject2) { create :subject, label: "sujet deux" }

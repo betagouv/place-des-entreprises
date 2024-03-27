@@ -29,4 +29,8 @@ class NeedPolicy < ApplicationPolicy
   def add_match?
     admin?
   end
+
+  def star?
+    admin?
+  end
 end

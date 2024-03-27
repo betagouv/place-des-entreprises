@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_07_111608) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_22_114535) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -496,6 +496,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_07_111608) do
     t.enum "status", default: "diagnosis_not_complete", null: false, enum_type: "need_status"
     t.boolean "abandoned_email_sent", default: false
     t.datetime "retention_sent_at", precision: nil
+    t.datetime "starred_at", precision: nil
     t.index ["diagnosis_id"], name: "index_needs_on_diagnosis_id"
     t.index ["status"], name: "index_needs_on_status"
     t.index ["subject_id", "diagnosis_id"], name: "index_needs_on_subject_id_and_diagnosis_id", unique: true

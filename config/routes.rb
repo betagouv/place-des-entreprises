@@ -103,6 +103,12 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :veille, only: %i[index], path: 'veille' do
+      collection do
+        get :quo_matches, path: 'mer-en-attente'
+        get :starred_needs, path: 'besoins-suivis'
+      end
+    end
   end
 
   namespace 'manager' do
@@ -154,6 +160,7 @@ Rails.application.routes.draw do
     end
     member do
       post :add_match
+      post :star
     end
   end
 

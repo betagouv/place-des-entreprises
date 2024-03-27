@@ -51,10 +51,10 @@
                                 = filter_form.label :filter_value, I18n.t('false', scope: [:activerecord, :attributes, :additional_subject_questions, key], default: t('no').titleize), value: false, class: 'fr-label'
                     = need_form.text_area :content, placeholder: t('.need_content_placeholder'), rows: 2, class: 'fr-input'
 
-              .fr-mt-2w.bottom_actions
+              .fr-mt-2w.bottom-actions
                 = render 'next_step', diagnosis_form: diagnosis_form
 
-      .bottom_actions.space-between.fr-mt-10v
+      .bottom-actions.space-between.fr-mt-10v
         = link_to contact_conseiller_diagnosis_path, class: 'fr-btn fr-btn--icon-left height-fit-content', data: { turbo: false } do
           %span.ri-arrow-left-line.fr-mr-1w{ 'aria-hidden': 'true' }
           = t('previous_step')

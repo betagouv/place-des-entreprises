@@ -19,10 +19,12 @@
 #
 class RemindersAction < ApplicationRecord
   enum category: {
-    poke: 1,        # J+9
-    last_chance: 3, # J+21
-    abandon: 4,     # J+45
-    refused: 5      # Sortir du panier 'refusé'
+    poke: 1,          # J+9
+    last_chance: 3,   # J+21
+    abandon: 4,       # J+45
+    refused: 5,       # Sortir du panier 'refusé'
+    quo_match: 6,     # Sortir de la veille MER en attente
+    starred_need: 7 # Sortie de la veille Besoin suivi
   }, _prefix: true
 
   ## Associations

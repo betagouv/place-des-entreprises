@@ -75,6 +75,12 @@ class NeedsController < ApplicationController
     end
   end
 
+  def star
+    @need = retrieve_need
+    authorize @need, :star?
+    @need.update(starred_at: Time.zone.now)
+  end
+
   private
 
   def authorize_index_solicitation
