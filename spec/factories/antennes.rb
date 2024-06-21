@@ -22,4 +22,11 @@ FactoryBot.define do
       create_list(:expert_subject, 1, expert: create(:expert_with_users, antenne: antenne))
     end
   end
+
+  trait :with_manager do
+    after(:create) do |antenne|
+      user = create(:user)
+      user.managed_antennes.push(antenne)
+    end
+  end
 end

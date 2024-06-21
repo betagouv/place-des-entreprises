@@ -97,12 +97,22 @@ class CompanySatisfaction < ApplicationRecord
   def share
     done_experts.find_each do |e|
       e.users.find_each{ |u| self.shared_satisfactions.create(user: u, expert: e) }
+      expert_antenne = e.antenne
+      expert_antenne.managers.each{ |u| self.shared_satisfactions.where(user: u).first_or_create(expert: e) }
+      share_with_higher_manager(e, expert_antenne)
     end
     return true if self.valid?
     self.shared_satisfactions.map{ |us| us.errors.full_messages.to_sentence }.uniq.each do |error|
       self.errors.add(:base, error)
     end
     false
+  end
+
+  def share_with_higher_manager(e, antenne)
+    if antenne.parent_antenne.present?
+      antenne.parent_antenne.managers.each{ |u| self.shared_satisfactions.where(user: u).first_or_create(expert: e) }
+      share_with_higher_manager(e, antenne.parent_antenne)
+    end
   end
 
   def shared

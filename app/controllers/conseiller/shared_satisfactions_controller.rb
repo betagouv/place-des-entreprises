@@ -36,17 +36,25 @@ class Conseiller::SharedSatisfactionsController < ApplicationController
   private
 
   def retrieve_unseen_satisfactions
-    @unseen_satisfactions ||= current_user.received_needs
+    @unseen_satisfactions ||= base_needs
       .joins(company_satisfaction: :shared_satisfactions)
       .merge(SharedSatisfaction.unseen.where(user_id: current_user.id))
       .distinct
   end
 
   def retrieve_seen_satisfactions
-    @seen_satisfactions ||= current_user.received_needs
+    @seen_satisfactions ||= base_needs
       .joins(company_satisfaction: :shared_satisfactions)
       .merge(SharedSatisfaction.seen.where(user_id: current_user.id))
       .distinct
+  end
+
+  def base_needs
+    if current_user.is_manager?
+      current_user.antenne.perimeter_received_needs
+    else
+      current_user.received_needs
+    end
   end
 
   def collections_counts
