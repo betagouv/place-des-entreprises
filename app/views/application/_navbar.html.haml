@@ -45,6 +45,10 @@
                 - cache([current_user, current_user.needs_quo_active.size]) do
                   - if current_user.needs_quo_active.size > 0
                     %span.count-notification.fr-tag.fr-tag--sm.fr-ml-1w= current_user.needs_quo_active.size
+            - if policy(User).manager?
+              = active_link_to manager_needs_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active' do
+                %span.ri-inbox-fill.fr-mr-1w{ 'aria-hidden': 'true' }
+                = current_user.managed_antennes.many? ? t('.antennes_needs') : t('.antenne_needs')
             - if policy(:shared_satisfaction).show_navbar?
               = active_link_to conseiller_shared_satisfactions_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active' do
                 %span.ri-chat-heart-line.fr-mr-1w{ 'aria-hidden': 'true' }
@@ -53,9 +57,6 @@
                   - if current_user.shared_satisfactions.unseen.size > 0
                     %span.count-notification.count-notification--green.fr-tag.fr-tag--sm.fr-ml-1w= current_user.shared_satisfactions.unseen.size
             - if policy(User).manager?
-              = active_link_to manager_needs_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active' do
-                %span.ri-inbox-fill.fr-mr-1w{ 'aria-hidden': 'true' }
-                = current_user.managed_antennes.many? ? t('.antennes_needs') : t('.antenne_needs')
               = active_link_to manager_stats_path, class: 'fr-nav__link', wrap_tag: :li, wrap_class: 'fr-nav__item', class_active: 'fr-nav__item--active' do
                 %span.ri-line-chart-line.fr-mr-1w{ 'aria-hidden': 'true' }
                 = t('.stats')

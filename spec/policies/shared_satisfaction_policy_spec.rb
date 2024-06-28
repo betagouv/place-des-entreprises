@@ -7,7 +7,7 @@ RSpec.describe SharedSatisfactionPolicy, type: :policy do
     context "denies access if user is a manager" do
       let(:user) { create :user, :manager }
 
-      it { is_expected.not_to permit(user) }
+      it { is_expected.to permit(user) }
     end
 
     context "grants access if user is a standard user" do

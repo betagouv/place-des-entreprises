@@ -13,7 +13,7 @@ ActiveAdmin.register CompanySatisfaction do
     init_subjects_filter
   end
 
-  includes :need, :landing, :solicitation, :subject, :facility, :shared_satisfactions
+  includes :need, :landing, :solicitation, :subject, :facility, :shared_satisfactions, :shared_satisfaction_experts, :shared_satisfaction_users, :diagnosis, :facility
   config.sort_order = 'created_at_desc'
 
   scope :all, default: true
@@ -112,15 +112,12 @@ ActiveAdmin.register CompanySatisfaction do
   end
 
   member_action :share do
-    if resource.share
-      redirect_back fallback_location: collection_path, notice: t('active_admin.company_satisfaction.shared')
-    else
-      redirect_back fallback_location: collection_path, alert: resource.errors.full_messages.uniq.to_sentence
-    end
+    CreateSharedSatisfactionJob.perform_later(resource.id)
+    redirect_back fallback_location: collection_path, notice: t('active_admin.company_satisfaction.shared')
   end
 
   batch_action I18n.t('active_admin.company_satisfaction.share'), { action: :share, confirm: I18n.t('active_admin.company_satisfaction.share_confirmation') } do |ids|
-    CompanySatisfaction.where(id: ids).find_each { |s| s.share }
+    CompanySatisfaction.where(id: ids).find_each { |satisfaction| CreateSharedSatisfactionJob.perform_later(satisfaction.id) }
     redirect_back fallback_location: collection_path, notice: I18n.t('active_admin.company_satisfaction.shared')
   end
 end

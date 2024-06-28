@@ -31,7 +31,7 @@ class Conseiller::SharedSatisfactionsController < ApplicationController
     else
       flash.alert = @shared_satisfaction.errors.full_messages.to_sentence
     end
-    redirect_to action: :unseen
+    redirect_to action: :unseen, anchor: 'side-menu-main'
   end
 
   private
@@ -60,7 +60,7 @@ class Conseiller::SharedSatisfactionsController < ApplicationController
 
   def retrieve_antennes
     ids = (current_user.managed_antenne_ids + current_user.managed_antennes.map { |a| a.territorial_antennes.pluck(:id) }).flatten
-    Antenne.with_experts_subjects.not_deleted.where(id: ids)
+    Antenne.with_experts_subjects.not_deleted.where(id: ids).order(:name)
   end
 
   def collections_counts
