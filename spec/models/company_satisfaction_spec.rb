@@ -52,10 +52,10 @@ RSpec.describe CompanySatisfaction do
       it 'doesnt share twice' do
         expect(SharedSatisfaction.all.size).to eq(0)
         expect { company_satisfaction.share }.to change(SharedSatisfaction.all, :count).by(1)
-        expect{ company_satisfaction.share }.not_to change(SharedSatisfaction.all, :count)
+        expect { company_satisfaction.share }.not_to change(SharedSatisfaction.all, :count)
       end
 
-      context 'multiple satisfction for an expert' do
+      context 'multiple satisfaction for an expert' do
         let(:company_satisfaction2) { create :company_satisfaction, need: create(:need, matches: [ create(:match, status: :done, expert: expert1)]) }
 
         before { company_satisfaction.share }
@@ -64,6 +64,48 @@ RSpec.describe CompanySatisfaction do
           expect(expert1.shared_satisfactions.count).to eq(1)
           expect { company_satisfaction2.share }.to change(expert1.shared_satisfactions, :count).by(1)
 
+        end
+      end
+
+      context 'with higher manager' do
+        let!(:national_antenne) { create :antenne, :national, :with_manager }
+        let!(:regional_antenne) { create :antenne, :regional, :with_manager, parent_antenne: national_antenne }
+        let!(:local_antenne) { create :antenne, :local, :with_manager, parent_antenne: regional_antenne }
+        let(:expert) { create :expert_with_users, antenne: antenne }
+        let(:need) do
+          create :need, matches: [create(:match, status: :done, expert: expert)]
+        end
+        let(:company_satisfaction) { create :company_satisfaction, need: need }
+
+        before do
+          company_satisfaction.share
+        end
+
+        context 'national expert' do
+          let!(:antenne) { national_antenne }
+
+          it 'shares to expert and direct manager' do
+            expect(SharedSatisfaction.all.size).to eq(2)
+            expect(SharedSatisfaction.all.map{ |satisfaction| satisfaction.user }).to match_array(expert.users + national_antenne.managers)
+          end
+        end
+
+        context 'regional expert' do
+          let!(:antenne) { regional_antenne }
+
+          it 'shares to expert and direct manager' do
+            expect(SharedSatisfaction.all.size).to eq(3)
+            expect(SharedSatisfaction.all.map{ |satisfaction| satisfaction.user }).to match_array(expert.users + national_antenne.managers + regional_antenne.managers)
+          end
+        end
+
+        context 'local expert' do
+          let!(:antenne) { local_antenne }
+
+          it 'shares to expert and direct manager' do
+            expect(SharedSatisfaction.all.size).to eq(4)
+            expect(SharedSatisfaction.all.map{ |satisfaction| satisfaction.user }).to match_array(expert.users + local_antenne.managers + national_antenne.managers + regional_antenne.managers)
+          end
         end
       end
     end

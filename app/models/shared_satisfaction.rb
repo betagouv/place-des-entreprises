@@ -28,6 +28,8 @@ class SharedSatisfaction < ApplicationRecord
   belongs_to :user, inverse_of: :shared_satisfactions
   belongs_to :expert, inverse_of: :shared_satisfactions
 
+  has_one :need, through: :company_satisfaction
+
   validates :user_id, uniqueness: { scope: [:company_satisfaction_id, :expert_id] }
   validate :satisaction_has_comment
 

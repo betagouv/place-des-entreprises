@@ -3,6 +3,22 @@
 - content_for :menu, render('menu', collections_count: @satisfaction_collections_count)
 - content_for :callout, render('callout')
 
+- if current_user.is_manager?
+  .fr-container--fluid.fr-mb-2w
+
+    = form_with url: request.url, method: :get, skip_enforcing_utf8: true, local: true, class: 'fr-grid-row' do |f|
+      = hidden_field_tag :anchor, 'side-menu-main'
+      .fr-col-12.fr-mb-1w
+        - if @antennes.many?
+          .fr-select-group
+            = f.label :antenne_id, t('activerecord.models.antenne.one'), class: 'fr-label'
+            = f.select :antenne_id, options_for_select(@antennes.pluck(:name, :id), selected: params[:antenne_id]), { include_blank: t('all.feminine') }, class: "fr-select"
+      .fr-col-12
+        .fr-input-group
+          = f.submit t('stats.stats_params.filter'), class: 'fr-btn'
+          - if request.fullpath.include?("?")
+            = link_to t('clear_search'), request.fullpath.split('?').first, class: 'fr-btn fr-btn--tertiary-no-outline'
+
 - if @needs.to_a.size == 0
   .fr-container.text-center.fr-mt-18v
     .fr-h3= t('.no_results')
