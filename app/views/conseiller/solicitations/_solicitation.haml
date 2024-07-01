@@ -7,43 +7,43 @@
   .fr-card__body.fr-text--sm
     .fr-card__content
       .card__info
-        .card__fields
+        %ul.card__fields.list-unstyled.fr-p-0
           - if solicitation.siret.present?
-            .item
+            %li.item
               = t('.siret')
               %strong= link_to(solicitation.normalized_siret, show_with_siret_companies_path(solicitation.siret), data: { turbo: false })
-          .item
+          %li.item
             = t('.email')
             %strong= mail_to(solicitation.email, solicitation.email, target: '_blank')
           - solicitation.display_attributes.each do |attribut|
             - if solicitation.send(attribut).present?
-              .item
+              %li.item
                 = Solicitation.human_attribute_name(attribut) + ' : '
                 %strong= solicitation.send(attribut)
           - if solicitation.landing.present?
-            .item
+            %li.item
               = t('.source')
               %strong= link_to solicitation.landing.slug, landing_path(solicitation.landing)
           - if solicitation.landing_subject.present?
-            .item
+            %li.item
               = t('.landing_subjects')
               = subject_button(solicitation, "fr-btn fr-btn--secondary fr-btn--sm")
           = display_region(solicitation.region, params[:territory])
 
         .card__meta
-          .meta__warnings
+          %ul.list-unstyled.meta__warnings
             - if solicitation.facility&.company&.forme_exercice.present?
-              %span.meta__warnings__item= solicitation.facility.company.forme_exercice.humanize
+              %li.meta__warnings__item= solicitation.facility.company.forme_exercice.humanize
             - if solicitation.recent_matched_solicitations.any?
-              %span.meta__warnings__item{ title: t('.solicitation_relance_explanation') } R
+              %li.meta__warnings__item{ title: t('.solicitation_relance_explanation') } R
             - if solicitation.doublon_solicitations.any?
-              %span.meta__warnings__item{ title: t('.solicitation_doublon_explanation') } D
+              %li.meta__warnings__item{ title: t('.solicitation_doublon_explanation') } D
             - if solicitation.from_no_register_company?
-              %span.meta__warnings__item{ title: t('.solicitation_no_register_company_explanation') } ?
+              %li.meta__warnings__item{ title: t('.solicitation_no_register_company_explanation') } ?
             - if solicitation.similar_abandonned_needs.any?
-              %span.meta__warnings__item{ title: t('.similar_abandonned_needs_explanation') } A
+              %li.meta__warnings__item{ title: t('.similar_abandonned_needs_explanation') } A
             - if solicitation.from_intermediary?
-              %span.meta__warnings__item{ title: t('.from_intermediary') } I
+              %li.meta__warnings__item{ title: t('.from_intermediary') } I
           - if facilities[solicitation.id].present?
             .meta__items
               .item= t('.needs_historic')

@@ -10,7 +10,7 @@ describe SolicitationHelper do
       subject { helper.display_region(region, nil) }
 
       it 'return region' do
-        is_expected.to eq "<div class=\"item\">#{CGI.unescapeHTML(I18n.t('helpers.solicitation.localisation_html', region: region.name))}</div>"
+        is_expected.to eq "<li class=\"item\">#{CGI.unescapeHTML(I18n.t('helpers.solicitation.localisation_html', region: region.name))}</li>"
       end
     end
 

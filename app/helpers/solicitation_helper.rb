@@ -58,7 +58,7 @@ module SolicitationHelper
   def display_region(region, territory_params)
     # display region if there is no region filter
     return unless ((territory_params.present? && (territory_params == 'uncategorisable')) || territory_params.blank?) && region.present?
-    tag.div(class: 'item') do
+    tag.li(class: 'item') do
       t('helpers.solicitation.localisation_html', region: region.name)
     end
   end
